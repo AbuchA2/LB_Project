@@ -2,9 +2,29 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>signIn</title>
+<link rel="stylesheet" type="text/css" href="bootstrap.css" media="all"/>
+        <meta charset="utf-8" />
 </head>
 <body>
-
+      <form class="form-signin">
+        <label for="inputUserName" class="sr-only">Nom d'utilisateur</label>
+        <input type="email" id="inputUserName" class="form-control" placeholder="Nom d'utilisateur" required autofocus>
+        <label for="inputPassword" class="sr-only">Mot de passe</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Mot de Passe" required>
+        <label for="inputConfirmationPassword" class="sr-only">Confirmation du mot de passe</label>
+        <input type="password" id="inputConfirmationPassword" class="form-control" placeholder="Confirmation mot de passe" required>
+        <label for="inputEmail" class="sr-only">Mot de Passe</label>
+        <input type="password" id="inputEmail" class="form-control" placeholder="Adresse mail" required>
+        <label for="inputConfirmationMail" class="sr-only">Confirmation Mail</label>
+        <input type="password" id="inputConfirmationMail" class="form-control" placeholder="Confirmation adresse mail" required>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> Se souvenir de moi
+          </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Valider</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Annuler</button>
+      </form>
 </body>
 </html>
