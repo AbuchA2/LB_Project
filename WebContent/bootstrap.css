@@ -12,7 +12,9 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 body {
-  margin: 0;
+	/*Modif Paul : avant 0px */
+  margin: 10px;
+  margin-top:70px;
 }
 article,
 aside,
@@ -1087,7 +1089,7 @@ body {
   font-size: 14px;
   line-height: 1.42857143;
   color: #555555;
-  background-color: #ffffff;
+  background-color: #F0F0F0;
 }
 input,
 button,
@@ -4130,6 +4132,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .container-fluid > .navbar-collapse {
   margin-right: -15px;
   margin-left: -15px;
+
 }
 @media (min-width: 768px) {
   .container > .navbar-header,
@@ -6719,3 +6722,5 @@ button.close {
 .panel-info .panel-title {
   color: #fff;
 }
+
+
