@@ -6717,7 +6717,7 @@ button.close {
 .panel-info .panel-heading,
 .panel-primary .panel-title,
 .panel-success .panel-title,
-.panel-warning .panel-title,
+.panel-warning .panel-title,s
 .panel-danger .panel-title,
 .panel-info .panel-title {
   color: #fff;
@@ -6725,3 +6725,7 @@ button.close {
 
 /*Modif Paul*/
 
+.jumbotron {
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+}
