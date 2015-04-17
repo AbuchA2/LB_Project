@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="utf-8">
 <title>Connexion</title>
 <link rel="stylesheet" type="text/css" href="bootstrap.css" media="all"/>
-        <meta charset="utf-8" />
+
 </head>
 <body>
 
