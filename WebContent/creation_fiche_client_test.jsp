@@ -49,17 +49,6 @@
 				<button class="btn btn-lg btn-primary btn-block" type="submit">Annuler l'inscription</button>
 	</form>
 
-<div id="wrap">
-
-	<h2>Démonstration d'un input de type date</h2>
-		<form action="input-type-date.php" method="post">
-		<label for="champ1">Votre date de naissance</label>
-		<input type="date" id="champ1" name="date">
-		<br /><br />
-		<button>Tayst</button>
-	</form>
-
-</div>
 
 
 </body>
