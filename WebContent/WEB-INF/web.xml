@@ -14,7 +14,7 @@
 		    <welcome-file>default.jsp</welcome-file>
 		  </welcome-file-list>
 		  
-		  <servlet>
+	<!--	  <servlet>
 		    <servlet-name>Connexion</servlet-name>
 		    <servlet-class>controleur.Connexion.Connexion</servlet-class>
 		  </servlet>
@@ -22,5 +22,6 @@
 		    <servlet-name>Connexion</servlet-name>
 		    <url-pattern>/connexion</url-pattern>
 		  </servlet-mapping>
+		  -->
 	</web-app>
 </xml>
