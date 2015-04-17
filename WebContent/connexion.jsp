@@ -24,8 +24,8 @@
     </nav>
 
       <form class="form-signin">
-        <label for="inputEmail" class="sr-only">Nom d'utilisateur</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Nom d'utilisateur" required autofocus>
+        <label for="inputUser" class="sr-only">Nom d'utilisateur</label>
+        <input type="text" id="inputUser" class="form-control" placeholder="Nom d'utilisateur" required autofocus>
         <label for="inputPassword" class="sr-only">Mot de Passe</label>
         <input type="password" id="inputPassword" class="form-control" placeholder="Mot de Passe" required>
         <div class="checkbox">
