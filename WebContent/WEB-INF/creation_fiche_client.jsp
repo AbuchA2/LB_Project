@@ -28,7 +28,8 @@
 			placeholder="Nom" required autofocus> <label
 			for="inputLastname" class="sr-only">Prénom</label> <input type="text"
 			id="inputLastname" class="form-control" placeholder="Prénom" required>
-		<label for="inputnomdejeunefille" class="sr-only">Nom de jeune fille</label> <input type="text" id="inputnomdejeunefille"
+		<label for="inputnomdejeunefille" class="sr-only">Nom de jeune
+			fille</label> <input type="text" id="inputnomdejeunefille"
 			class="form-control" placeholder="Nom de jeune fille"> <br>
 
 		<div class="_58mq _5dbb" id="u_0_b">
@@ -197,11 +198,13 @@
 							<option value="1907">1907</option>
 							<option value="1906">1906</option>
 							<option value="1905">1905</option></select></span></span> <br>
-				<button class="btn btn-lg btn-primary btn-block" type="submit">Envoyer la fiche client</button>
-				<button class="btn btn-lg btn-primary btn-block" type="submit">Enregistrer la fiche client</button>
-				<button class="btn btn-lg btn-primary btn-block" type="submit">Annuler l'inscription</button>
+				<button class="btn btn-lg btn-primary btn-block" type="submit">Envoyer
+					la fiche client</button>
+				<button class="btn btn-lg btn-primary btn-block" type="submit">Enregistrer
+					la fiche client</button>
+				<button class="btn btn-lg btn-primary btn-block" type="submit">Annuler
+					l'inscription</button>
 	</form>
-
 
 
 </body>
