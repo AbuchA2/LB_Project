@@ -45,7 +45,7 @@
 		<a> Votre profil </a>
 	</div>
 	<div class="alert alert-success" role="alert">
-		<a> Votre compte </a>
+		<a> Votre fiche client</a>
 	</div>
 	<div class="alert alert-success" role="alert">
 		<a> Votre patrimoine </a>
