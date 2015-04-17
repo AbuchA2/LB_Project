@@ -27,7 +27,7 @@
 			type="text" id="inputFirstName" class="form-control"
 			placeholder="Nom" required autofocus> <label
 			for="inputLastname" class="sr-only">Prénom</label> <input type="text"
-			id="inputLastname" class="form-control" placeholder="PrÃ©nom" required>
+			id="inputLastname" class="form-control" placeholder="Prénom" required>
 		<label for="inputnomdejeunefille" class="sr-only">Nom de jeune fille</label> <input type="text" id="inputnomdejeunefille"
 			class="form-control" placeholder="Nom de jeune fille"> <br>
 
@@ -85,7 +85,7 @@
 							<option value="11">nov</option>
 							<option value="12">dÃ©c</option></select><select aria-label="Ann&#xe9;e"
 						name="birthday_year" id="year" title="Ann&#xe9;e" class="_5dba"><option
-								value="0" selected="1">AnnÃ©e</option>
+								value="0" selected="1">Année</option>
 							<option value="2015">2015</option>
 							<option value="2014">2014</option>
 							<option value="2013">2013</option>
@@ -197,12 +197,9 @@
 							<option value="1907">1907</option>
 							<option value="1906">1906</option>
 							<option value="1905">1905</option></select></span></span> <br>
-				<button class="btn btn-lg btn-primary btn-block" type="submit">Envoyer
-					la fiche client</button>
-				<button class="btn btn-lg btn-primary btn-block" type="submit">Enregistrer
-					la fiche client</button>
-				<button class="btn btn-lg btn-primary btn-block" type="submit">Annuler
-					l'inscription</button>
+				<button class="btn btn-lg btn-primary btn-block" type="submit">Envoyer la fiche client</button>
+				<button class="btn btn-lg btn-primary btn-block" type="submit">Enregistrer la fiche client</button>
+				<button class="btn btn-lg btn-primary btn-block" type="submit">Annuler l'inscription</button>
 	</form>
 
 
