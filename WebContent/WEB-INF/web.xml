@@ -7,7 +7,8 @@
 		version="3.0">
 		  <display-name>LB_Project</display-name>
 		  <welcome-file-list>
-		   <!-- <welcome-file>connexion.htm</welcome-file> -->
+		   <!-- <welcome-file>connexion.html</welcome-file> -->
+		   <welcome-file>connexion.htm</welcome-file>
 		    <welcome-file>connexion.jsp</welcome-file>
 		   <!-- <welcome-file>default.htm</welcome-file>  -->
 		    <welcome-file>default.jsp</welcome-file>
