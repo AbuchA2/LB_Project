@@ -55,4 +55,3 @@ public class Connexion extends HttpServlet {
     private void validationNom( String nom ) throws Exception{}
 		
 }
-
