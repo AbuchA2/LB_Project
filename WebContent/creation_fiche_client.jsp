@@ -26,10 +26,9 @@
 		<label for="inputFirstName" class="sr-only">Nom</label> <input
 			type="text" id="inputFirstName" class="form-control"
 			placeholder="Nom" required autofocus> <label
-			for="inputLastname" class="sr-only">Prénom</label> <input type="text"
+			for="inputLastname" class="sr-only">Pr�nom</label> <input type="text"
 			id="inputLastname" class="form-control" placeholder="Prénom" required>
-		<label for="inputnomdejeunefille" class="sr-only">Nom de jeune
-			fille</label> <input type="text" id="inputnomdejeunefille"
+		<label for="inputnomdejeunefille" class="sr-only">Nom de jeune fille</label> <input type="text" id="inputnomdejeunefille"
 			class="form-control" placeholder="Nom de jeune fille"> <br>
 
 		<div class="_58mq _5dbb" id="u_0_b">
