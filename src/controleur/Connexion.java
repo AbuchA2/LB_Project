@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Connexion
  */
-@WebServlet(name = "Connexion", urlPatterns = { "/connexion" })
+@WebServlet(name = "onnexion", urlPatterns = { "/connexion" })
         
 public class Connexion extends HttpServlet {
 	private static final long serialVersionUID = 1L;
