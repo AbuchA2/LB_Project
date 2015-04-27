@@ -30,23 +30,24 @@
 			placeholder="Nom" required autofocus> <label
 			for="inputLastname" class="sr-only">Prénom</label> <input type="text"
 			id="inputLastname" class="form-control" placeholder="Prénom" required>
-		<label for="inputnomdejeunefille" class="sr-only">Nom de jeune fille</label> <input type="text" id="inputnomdejeunefille"
+		<label for="inputnomdejeunefille" class="sr-only">Nom de jeune
+			fille</label> <input type="text" id="inputnomdejeunefille"
 			class="form-control" placeholder="Nom de jeune fille"> <br>
 
-<div id="wrap">
+		<div id="wrap">
 
-	<h2>Démonstration d'un input de type date</h2>
-		<form action="input-type-date.php" method="post">
-		<label for="champ1">Votre date de naissance</label>
-		<input type="date" id="champ1" name="date">
-		<br /><br />
-		<button>Tayst</button>
-	</form>
+			<label for="inputdatedenaissance" class="sr-only">Date de
+				naissance</label> <input type="date" id="inputnomdejeunefille"
+				class="form-control" placeholder="Date de naissance">
 
-</div> <br>
-				<button class="btn btn-lg btn-primary btn-block" type="submit">Envoyer la fiche client</button>
-				<button class="btn btn-lg btn-primary btn-block" type="submit">Enregistrer la fiche client</button>
-				<button class="btn btn-lg btn-primary btn-block" type="submit">Annuler l'inscription</button>
+		</div>
+		<br>
+		<button class="btn btn-lg btn-primary btn-block" type="submit">Envoyer
+			la fiche client</button>
+		<button class="btn btn-lg btn-primary btn-block" type="submit">Enregistrer
+			la fiche client</button>
+		<button class="btn btn-lg btn-primary btn-block" type="submit">Annuler
+			l'inscription</button>
 	</form>
 
 
