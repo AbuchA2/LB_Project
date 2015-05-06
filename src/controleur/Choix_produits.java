@@ -21,8 +21,7 @@ public class Choix_produits extends HttpServlet {
     public static final String CHAMP_PEL = "pel";
     public static final String CHAMP_COMPTE = "comptebancaire";
     public static final String CHAMP_CARTE = "cartebancaire";
-    public static final String CHAMP_SUIVANT = "suivant";
-    public static final String CHAMP_ANNUL = "annuler";
+
     
 	
 	/**
@@ -45,6 +44,11 @@ public class Choix_produits extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+        String livretA = request.getParameter( CHAMP_LIVRET );
+        String pel = request.getParameter( CHAMP_PEL );
+        String comptebancaire = request.getParameter( CHAMP_COMPTE );
+        String cartebancaire = request.getParameter( CHAMP_CARTE );
 	}
 
 }

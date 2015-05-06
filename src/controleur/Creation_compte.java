@@ -21,8 +21,7 @@ public class Creation_compte extends HttpServlet {
     public static final String CHAMP_PASS2 = "confirmpasse";
     public static final String CHAMP_EMAIL = "email";
     public static final String CHAMP_EMAIL2 = "confirmmail";
-    public static final String CHAMP_VALID = "valider";
-    public static final String CHAMP_ANNUL = "annuler";
+
     
     /**
      * @see HttpServlet#HttpServlet()
