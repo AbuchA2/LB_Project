@@ -43,6 +43,11 @@ public class Creation_compte extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+        String nomutilisateur = request.getParameter( CHAMP_NOMUSER );
+        String motdepasse = request.getParameter( CHAMP_PASS );
+        String confirmpasse = request.getParameter( CHAMP_PASS2 );
+        String email = request.getParameter( CHAMP_EMAIL );
+        String confirmail = request.getParameter( CHAMP_EMAIL2 );
 	}
 
 }
