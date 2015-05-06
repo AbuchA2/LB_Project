@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css" href="bootstrap.css" media="all"/>
         <meta charset="utf-8" />
 <meta charset="ISO-8859-1">
-<title>CrÃ©ation de compte</title>
+<title>Création de compte</title>
 </head>
 <body>
    <!-- Fixed navbar -->
