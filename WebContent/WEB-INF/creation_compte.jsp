@@ -6,6 +6,7 @@
 <meta charset="ISO-8859-1">
 <title>Création de compte</title>
 </head>
+
 <body>
    <!-- Fixed navbar -->
     <nav class="navbar navbar-default navbar-fixed-top">
