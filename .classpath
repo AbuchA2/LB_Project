@@ -9,5 +9,23 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Users/paul/Desktop/hibernate/antlr-2.7.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/paul/Desktop/hibernate/asm.jar"/>
+	<classpathentry kind="lib" path="C:/Users/paul/Desktop/hibernate/asm-attrs.jar"/>
+	<classpathentry kind="lib" path="C:/Users/paul/Desktop/hibernate/c3p0-0.9.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/paul/Desktop/hibernate/cglib-2.1.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/paul/Desktop/hibernate/commons-collections-2.1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/paul/Desktop/hibernate/commons-logging-1.0.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/paul/Desktop/hibernate/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/paul/Desktop/hibernate/ehcache-1.2.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/paul/Desktop/hibernate/ejb3-persistence.jar"/>
+	<classpathentry kind="lib" path="C:/Users/paul/Desktop/hibernate/hibernate3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/paul/Desktop/hibernate/hibernate-annotations.jar"/>
+	<classpathentry kind="lib" path="C:/Users/paul/Desktop/hibernate/hibernate-commons-annotations.jar"/>
+	<classpathentry kind="lib" path="C:/Users/paul/Desktop/hibernate/hibernate-validator.jar"/>
+	<classpathentry kind="lib" path="C:/Users/paul/Desktop/hibernate/jdbc2_0-stdext.jar"/>
+	<classpathentry kind="lib" path="C:/Users/paul/Desktop/hibernate/jta.jar"/>
+	<classpathentry kind="lib" path="C:/Users/paul/Desktop/hibernate/log4j-1.2.11.jar"/>
+	<classpathentry kind="lib" path="C:/Users/paul/Desktop/hibernate/xerces-2.6.2.jar"/>
 	<classpathentry kind="output" path="WebContent/WEB-INF/classes"/>
 </classpath>

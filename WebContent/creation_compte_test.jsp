@@ -22,9 +22,9 @@
       </div>
     </nav>
 
-      <form class="form-signin">
+      <form class="form-signin" method="POST" action="creation_compte">
         <label for="inputUserName" class="sr-only">Nom d'utilisateur</label>
-        <input type="text" id="inputUserName" class="form-control" placeholder="Nom d'utilisateur" required autofocus>
+        <input type="text" name="inputUserName" id="inputUserName" class="form-control" placeholder="Nom d'utilisateur" required autofocus>
         <label for="inputPassword" class="sr-only">Mot de passe</label>
         <input type="password" id="inputPassword" class="form-control" placeholder="Mot de Passe" required>
         <label for="inputConfirmationPassword" class="sr-only">Confirmation du mot de passe</label>
@@ -37,5 +37,7 @@
         <button class="btn btn-lg btn-primary btn-block" type="submit">Valider</button>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Annuler</button>
       </form>
+      
+      <a href="page_accueil_test.jsp">aa</a>
 </body>
 </html>
