@@ -38,7 +38,6 @@ public class Creation_compte extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 	}
 
 	/**
@@ -57,9 +56,9 @@ public class Creation_compte extends HttpServlet {
         
         //StoreData.test();
         
-        String nextJSP = "/page_accueil_test.jsp";
+        String nextJSP = "/confirmation_inscription_test.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
-        dispatcher.forward(request,response);
+        dispatcher.forward(request,response); 
 	}
 
 }

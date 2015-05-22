@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css" href="bootstrap.css" media="all"/>
         <meta charset="utf-8" />
 <meta charset="ISO-8859-1">
-<title>CrÃ©ation de compte</title>
+<title>Création de compte</title>
 </head>
 
 <body>
@@ -23,7 +23,7 @@
       </div>
     </nav>
 
-      <form class="form-signin">
+      <form class="form-signin" method="POST" action="creation_compte">
         <label for="inputUserName" class="sr-only">Nom d'utilisateur</label>
         <input type="text" id="inputUserName" class="form-control" placeholder="Nom d'utilisateur" required autofocus>
         <label for="inputPassword" class="sr-only">Mot de passe</label>
