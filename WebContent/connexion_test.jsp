@@ -35,7 +35,7 @@
             <input type="checkbox" value="remember-me"> Se souvenir de moi
           </label>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Se connecter</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" style = "margin-bottom:5px;">Se connecter</button>
         
         
       </form>

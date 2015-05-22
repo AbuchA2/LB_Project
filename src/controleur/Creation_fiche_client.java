@@ -2,6 +2,7 @@ package controleur;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,7 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Creation_fiche_client
  */
-@WebServlet("/Creation_fiche_client")
+
+@WebServlet(name = "Creation_fiche_client", urlPatterns = { "/Creation_fiche_client" })
 public class Creation_fiche_client extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	public static final String CHAMP_NOM = "nom";
@@ -44,6 +46,10 @@ public class Creation_fiche_client extends HttpServlet {
         String prenom = request.getParameter( CHAMP_PREN );
         String nomdejeunefille = request.getParameter( CHAMP_NOMJEUNEFILLE );
         String datedenaissance = request.getParameter( CHAMP_DATENAISSANCE );
+        
+        String nextJSP = "/resume_fiche_test.jsp";
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
+        dispatcher.forward(request,response); 
 	}
 
 }

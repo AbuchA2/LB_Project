@@ -42,13 +42,15 @@
 
 		</div>
 		<br>
-		<button class="btn btn-lg btn-primary btn-block" type="submit">Envoyer
+		<button class="btn btn-lg btn-primary btn-block" type="submit" style = "margin-bottom:5px;">Envoyer
 			la fiche client</button>
-		<button class="btn btn-lg btn-primary btn-block" type="submit">Enregistrer
-			la fiche client</button>
-		<button class="btn btn-lg btn-primary btn-block" type="submit">Annuler
-			l'inscription</button>
+
 	</form>
+	
+	<button class="btn btn-lg btn-primary btn-block" >Enregistrer
+		la fiche client</button>
+	<button class="btn btn-lg btn-primary btn-block" >Annuler
+		l'inscription</button>
 
 
 
