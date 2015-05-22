@@ -57,9 +57,9 @@ public class Creation_compte extends HttpServlet {
         
         //StoreData.test();
         
-        String nextJSP = "/page_accueil_test.jsp";
+        String nextJSP = "/WEB-INF/page_accueil_test.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
-        dispatcher.forward(request,response);
+        dispatcher.forward(request,response); 
 	}
 
 }
