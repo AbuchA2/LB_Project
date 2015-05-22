@@ -36,8 +36,10 @@
           </label>
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Se connecter</button>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">S'inscrire</button>
+        
+        
       </form>
+      <a href= "creation_compte_test.jsp" style="text-decoration:none;"><button class="btn btn-lg btn-primary btn-block" >S'inscrire</button></a>
 
 </body>
 </html>

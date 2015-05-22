@@ -37,7 +37,6 @@
         <button class="btn btn-lg btn-primary btn-block" type="submit">Valider</button>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Annuler</button>
       </form>
-      
-      <a href="page_accueil_test.jsp">aa</a>
+
 </body>
 </html>

@@ -40,18 +40,9 @@
 	<!-- 			</div> -->
 	<!-- 		</div> -->
 	<!-- 	</div> -->
+<a href= "resume_profil_test.jsp" style="text-decoration:none; "><button class="btn btn-lg btn-primary btn-block" style = "margin-bottom:5px;">Votre profil</button></a>
+<a href= "creation_fiche_client_test.jsp" style="text-decoration:none; "><button class="btn btn-lg btn-primary btn-block" style = "margin-bottom:5px;">Votre fiche client</button></a>
+<a href= "gestionnaire_patrimoine_test.jsp" style="text-decoration:none; "><button class="btn btn-lg btn-primary btn-block" style = "margin-bottom:5px;">Votre patrimoine</button></a>
 
-	<div class="alert alert-success" role="alert">
-		<a> Votre profil </a>
-	</div>
-	<div class="alert alert-success" role="alert">
-		<a> Votre fiche client</a>
-	</div>
-	<div class="alert alert-success" role="alert">
-		<a> Votre patrimoine </a>
-	</div>
-	<div class="alert alert-success" role="alert">
-		<a> Souscrire </a>
-	</div>
 </body>
 </html>
