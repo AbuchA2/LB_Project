@@ -19,7 +19,7 @@ import modele.StoreData;
 
 public class Creation_compte extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	public static final String CHAMP_NOMUSER = "inputUserName";
+	public static final String CHAMP_NOM_USER = "inputUserName";
     public static final String CHAMP_PASS = "motdepasse";
     public static final String CHAMP_PASS2 = "confirmpasse";
     public static final String CHAMP_EMAIL = "email";
@@ -46,7 +46,7 @@ public class Creation_compte extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-        String nomutilisateur = request.getParameter( CHAMP_NOMUSER );
+        String nomutilisateur = request.getParameter( CHAMP_NOM_USER );
         String motdepasse = request.getParameter( CHAMP_PASS );
         String confirmpasse = request.getParameter( CHAMP_PASS2 );
         String email = request.getParameter( CHAMP_EMAIL );

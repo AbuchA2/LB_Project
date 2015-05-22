@@ -25,7 +25,7 @@
     </nav>
     
 
-      <form class="form-signin">
+      <form class="form-signin" method = "POST" action = "connexion">
         <label for="inputUser" class="sr-only">Nom d'utilisateur</label>
         <input type="text" id="inputUser" class="form-control" placeholder="Nom d'utilisateur" required autofocus>
         <label for="inputPassword" class="sr-only">Mot de Passe</label>
