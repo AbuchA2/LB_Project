@@ -19,7 +19,7 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">La Banque</a>
+				<a class="navbar-brand" href="page_accueil_test.jsp">La Banque</a>
 			</div>
 		</div>
 	</nav>
