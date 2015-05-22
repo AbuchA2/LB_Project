@@ -25,7 +25,7 @@
     </nav>
     
 
-      <form class="form-signin" method="POST" action="creation_compte">
+      <form class="form-signin" method="POST" action="connexion">
         <label for="inputUser" class="sr-only">Nom d'utilisateur</label>
         <input type="text" id="inputUser" class="form-control" placeholder="Nom d'utilisateur" required autofocus>
         <label for="inputPassword" class="sr-only">Mot de Passe</label>
@@ -36,7 +36,7 @@
           </label>
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Se connecter</button>
-        <a href="creation_compte">S'inscrire</a>
+        <a href="index">S'inscrire</a>
       </form>
 
 </body>
