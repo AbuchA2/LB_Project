@@ -26,11 +26,15 @@
 	</nav>
 
 	<form class="form-signin" method="POST" action="creation_fiche_client">
+	
 		<label for="inputFirstName" class="sr-only">Nom</label> <input
 			type="text" id="inputFirstName" class="form-control"
-			placeholder="Nom" required autofocus> <label
+			placeholder="Nom" required autofocus> 
+			
+			<label
 			for="inputLastname" class="sr-only">Prénom</label> <input type="text"
 			id="inputLastname" class="form-control" placeholder="Prénom" required>
+			
 		<label for="inputnomdejeunefille" class="sr-only">Nom de jeune
 			fille</label> <input type="text" id="inputnomdejeunefille"
 			class="form-control" placeholder="Nom de jeune fille"> <br>

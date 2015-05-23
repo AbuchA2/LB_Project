@@ -20,6 +20,11 @@ public class Creation_fiche_client extends HttpServlet {
     public static final String CHAMP_PREN = "prenom";
     public static final String CHAMP_NOMJEUNEFILLE = "nomjeunefille";
     public static final String CHAMP_DATENAISSANCE = "datedenaissance";
+    public static final String CHAMP_ADRESSE = "adresse";
+    public static final String CHAMP_USERMAIL = "mail";
+    public static final String CHAMP_TEL = "telephone";
+
+    
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -46,6 +51,11 @@ public class Creation_fiche_client extends HttpServlet {
         String prenom = request.getParameter( CHAMP_PREN );
         String nomdejeunefille = request.getParameter( CHAMP_NOMJEUNEFILLE );
         String datedenaissance = request.getParameter( CHAMP_DATENAISSANCE );
+        String adresse = request.getParameter( CHAMP_ADRESSE );
+        String mail = request.getParameter( CHAMP_USERMAIL );
+        String telephone = request.getParameter( CHAMP_TEL );
+        
+        
         
         String nextJSP = "/resume_fiche_test.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
