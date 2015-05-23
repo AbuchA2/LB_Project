@@ -12,7 +12,7 @@ public static void test() {
     Configuration cfg=new Configuration();  
     cfg.configure("hibernate.cfg.xml");//populates the data of the configuration file  
       
-    //creating seession factory object  
+    //creating session factory object  
     SessionFactory factory=cfg.buildSessionFactory();  
       
     //creating session object  

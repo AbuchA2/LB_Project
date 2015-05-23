@@ -5,13 +5,13 @@
   
  <hibernate-mapping>  
   <class name="modele.Utilisateur" table="user">  
-    <id name="id">  
+    <id name="id" column="id" type="integer">  
      <generator class="assigned"></generator>  
     </id>  
             
-    <property name="username"></property>  
-    <property name="email"></property>  
-    <property name="password"></property>  
+    <property name="username" column="lastname" type="string"></property>  
+    <property name="email" column="email" type="string"></property>  
+    <property name="password" column="password" type="string"></property>  
             
   </class>  
             

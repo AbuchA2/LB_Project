@@ -6,7 +6,6 @@
 <meta charset="ISO-8859-1">
 <title>Création de compte</title>
 </head>
-
 <body>
    <!-- Fixed navbar -->
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -25,12 +24,12 @@
 
       <form class="form-signin" method="POST" action="creation_compte">
         <label for="inputUserName" class="sr-only">Nom d'utilisateur</label>
-        <input type="text" id="inputUserName" class="form-control" placeholder="Nom d'utilisateur" required autofocus>
+        <input type="text" name="inputUserName" id="inputUserName" class="form-control" placeholder="Nom d'utilisateur" required autofocus>
         <label for="inputPassword" class="sr-only">Mot de passe</label>
         <input type="password" id="inputPassword" class="form-control" placeholder="Mot de Passe" required>
         <label for="inputConfirmationPassword" class="sr-only">Confirmation du mot de passe</label>
         <input type="password" id="inputConfirmationPassword" class="form-control" placeholder="Confirmation mot de passe" required>
-        <label for="inputEmail" class="sr-only">Email</label>
+        <label for="inputEmail" class="sr-only">Mot de Passe</label>
         <input type="email" id="inputEmail" class="form-control" placeholder="Adresse mail" required>
         <label for="inputConfirmationMail" class="sr-only">Confirmation Mail</label>
         <input type="email" id="inputConfirmationMail" class="form-control" placeholder="Confirmation adresse mail" required>
@@ -38,5 +37,6 @@
         <button class="btn btn-lg btn-primary btn-block" type="submit">Valider</button>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Annuler</button>
       </form>
+
 </body>
 </html>
