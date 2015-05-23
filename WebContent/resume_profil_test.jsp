@@ -21,7 +21,7 @@
         </div>
       </div>
     </nav>
-<h5>Nom d'utilisateur :</h5>
+<h5>Nom d'utilisateur :</h5> 
 <h5>Adresse mail :</h5>
 </body>
 </html>

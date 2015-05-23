@@ -20,6 +20,7 @@
 						class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand" href="page_accueil_test.jsp">La Banque</a>
+				<a class="navbar-brand" href="LogOut" >Déconnexion</a>
 			</div>
 		</div>
 	</nav>
