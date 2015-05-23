@@ -2,10 +2,18 @@ package modele;
 
 public class Utilisateur {
 
+	private int id ;
 	private String username ;
 	private String email ;
 	private String password ;
 	
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getUsername() {
 		return username;
 	}

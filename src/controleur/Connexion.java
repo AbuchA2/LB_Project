@@ -1,16 +1,21 @@
 package controleur;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import modele.StoreData;
 
 /**
  * Servlet implementation class Connexion
  */
-@WebServlet(name = "Connexion", urlPatterns = { "/connexion.jsp" })
+@WebServlet(name = "Connexion", urlPatterns = { "/connexion" })
         
 public class Connexion extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -44,8 +49,29 @@ public class Connexion extends HttpServlet {
         String souvenir = request.getParameter( CHAMP_SOUV );
         //String email = request.getParameter( CHAMP_EMAIL );
         //String confirmation = request.getParameter( CHAMP_CONF );
+        
+        System.out.println(motDePasse);
+        System.out.println(nom);
+        
+    	HttpSession s = request.getSession(true);
+        if (StoreData.connexion(nom, motDePasse)){
+        	
+        	s.setAttribute("username", nom);
+        	s.setAttribute("isConnected", true);
+//        	s.getAttribute("username"); a mettre danss les controlleurs pour tester si l'utilisateur est connecté
+        	
+        	String nextJSP = "/page_accueil_test.jsp";
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
+            dispatcher.forward(request,response); 
+        }
+        else {
+        	String nextJSP = "/connexion_test.jsp";
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
+            dispatcher.forward(request,response); 
+        }
 
-
+        
+        
         try {
             //validationEmail( email );
             //validationMotsDePasse( motDePasse, confirmation );

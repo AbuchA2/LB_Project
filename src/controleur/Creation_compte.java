@@ -53,8 +53,9 @@ public class Creation_compte extends HttpServlet {
         
         System.out.println(nomutilisateur);
         System.out.println(motdepasse);
+        System.out.println(email);
         
-        StoreData.test();
+        StoreData.inscription(nomutilisateur, motdepasse, email);
         
         String nextJSP = "/confirmation_inscription_test.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
