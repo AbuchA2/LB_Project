@@ -1,6 +1,6 @@
 package modele;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Client {
 	
@@ -46,8 +46,8 @@ public class Client {
 	public Date getDate_de_naissance() {
 		return date_de_naissance;
 	}
-	public void setDate_de_naissance(Date date_de_naissance) {
-		this.date_de_naissance = date_de_naissance;
+	public void setDate_de_naissance(Date datedenaissance) {
+		this.date_de_naissance = datedenaissance;
 	}
 	public String getAdresse() {
 		return adresse;

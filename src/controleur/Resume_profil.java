@@ -1,6 +1,8 @@
 package controleur;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Resume_profil
  */
-@WebServlet("/Resume_profil")
+@WebServlet(name = "resume_profil_test", urlPatterns = { "/resume_profil_test" })
 public class Resume_profil extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -27,6 +29,10 @@ public class Resume_profil extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+		request.setAttribute("person", "nimportequoi");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/resume_profil_test.jsp");
+						dispatcher.include(request, response);
 	}
 
 	/**

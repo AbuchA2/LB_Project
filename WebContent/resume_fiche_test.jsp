@@ -18,7 +18,7 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="#">La Banque</a>
-          				<a class="navbar-brand" href="LogOut" >Déconnexion</a>
+          				<a class="navbar-brand" href="LogOut" >Deconnexion</a>
         </div>
       </div>
     </nav>

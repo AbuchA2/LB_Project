@@ -1,6 +1,9 @@
 package controleur;
 
 import java.io.IOException;
+import java.util.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,20 +12,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import modele.StoreData;
+
 /**
- * Servlet implementation class Creation_fiche_client
+ * Servlet implementation class creation_fiche_client
  */
 
-@WebServlet(name = "Creation_fiche_client", urlPatterns = { "/Creation_fiche_client" })
+@WebServlet(name = "creation_fiche_client", urlPatterns = { "/creation_fiche_client" })
 public class Creation_fiche_client extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	public static final String CHAMP_NOM = "nom";
     public static final String CHAMP_PREN = "prenom";
-    public static final String CHAMP_NOMJEUNEFILLE = "nomjeunefille";
-    public static final String CHAMP_DATENAISSANCE = "datedenaissance";
+    public static final String CHAMP_NOMJEUNEFILLE = "nom_de_jeune_fille";
+    public static final String CHAMP_DATENAISSANCE = "date_de_naissance";
     public static final String CHAMP_ADRESSE = "adresse";
-    public static final String CHAMP_USERMAIL = "mail";
-    public static final String CHAMP_TEL = "telephone";
+    public static final String CHAMP_USERMAIL = "user_mail";
+    public static final String CHAMP_TEL = "tel";
 
     
        
@@ -49,15 +54,35 @@ public class Creation_fiche_client extends HttpServlet {
 		
         String nom = request.getParameter( CHAMP_NOM );
         String prenom = request.getParameter( CHAMP_PREN );
-        String nomdejeunefille = request.getParameter( CHAMP_NOMJEUNEFILLE );
-        String datedenaissance = request.getParameter( CHAMP_DATENAISSANCE );
+        String nom_de_jeune_fille = request.getParameter( CHAMP_NOMJEUNEFILLE );
+        Date date_de_naissance = null;
         String adresse = request.getParameter( CHAMP_ADRESSE );
-        String mail = request.getParameter( CHAMP_USERMAIL );
-        String telephone = request.getParameter( CHAMP_TEL );
+        String user_mail = request.getParameter( CHAMP_USERMAIL );
+        String tel = request.getParameter( CHAMP_TEL );
+        
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        String dateInString = request.getParameter( CHAMP_DATENAISSANCE );;
+        
+        try {
+        
+         date_de_naissance = formatter.parse(dateInString);
+        
+        } catch (ParseException e) {
+         e.printStackTrace();
+        }
         
         
+        System.out.println(nom);
+        System.out.println(prenom);
+        System.out.println(nom_de_jeune_fille);
+        System.out.println(date_de_naissance);
+        System.out.println(adresse);
+        System.out.println(user_mail);
+        System.out.println(tel);
         
-        String nextJSP = "/resume_fiche_test.jsp";
+        StoreData.creationficheclient(nom, prenom, nom_de_jeune_fille, date_de_naissance, adresse, user_mail, tel );
+        
+        String nextJSP = "/choix_produits_test.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
         dispatcher.forward(request,response); 
 	}

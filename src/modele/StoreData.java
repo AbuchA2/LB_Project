@@ -1,5 +1,6 @@
 package modele;
 
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -72,4 +73,37 @@ public static boolean connexion(String username, String password) {
     return result;
       
 }
+
+public static void creationficheclient(String nom, String prenom, String nomdejeunefille, Date datedenaissance, String adresse, String mail, String telephone ) {  
+    
+    //creating configuration object  
+    Configuration cfg=new Configuration();  
+    cfg.configure("hibernate.cfg.xml");//populates the data of the configuration file  
+      
+    //creating session factory object  
+    SessionFactory factory=cfg.buildSessionFactory();  
+      
+    //creating session object  
+    Session session=factory.openSession();  
+      
+    //creating transaction object  
+    Transaction t=session.beginTransaction();  
+          
+    Client e1=new Client();  
+    e1.setNom(nom);
+    e1.setPrenom(prenom);
+    e1.setNom_de_jeune_fille(nomdejeunefille);
+    e1.setDate_de_naissance(datedenaissance);
+    e1.setAdresse(adresse);
+    e1.setUser_mail(mail); 
+    e1.setTel(telephone); 
+    
+    session.persist(e1);//persisting the object  
+      
+    t.commit();//transaction is committed  
+    session.close();  
+      
+    System.out.println("successfully saved");  
+      
+} 
 }  

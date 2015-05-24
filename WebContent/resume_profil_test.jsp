@@ -18,11 +18,12 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="page_accueil_test.jsp">La Banque</a>
-          				<a class="navbar-brand" href="LogOut" >Déconnexion</a>
+          				<a class="navbar-brand" href="LogOut" >Deconnexion</a>
         </div>
       </div>
     </nav>
 <h5>Nom d'utilisateur :</h5> 
+${person}
 <h5>Adresse mail :</h5>
 </body>
 </html>

@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?>  
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">  
+  
+ <hibernate-mapping>  
+  <class name="modele.Client" table="client">  
+    <id name="id" column="id" type="integer">  
+     <generator class="assigned"></generator>  
+    </id>  
+            
+    <property name="nom" ></property>  
+    <property name="nom_de_jeune_fille" ></property>  
+    <property name="prenom" ></property> 
+    <property name="date_de_naissance" ></property>  
+    <property name="adresse" ></property>  
+    <property name="user_mail" ></property> 
+    <property name="tel" ></property>  
+    <property name="canal" ></property>  
+    <property name="produits_choisis" ></property>  
+    <property name="lien_PI" ></property>  
+    <property name="lien_JD" ></property>  
+    <property name="lien_IS" ></property>  
+            
+  </class>  
+            
+ </hibernate-mapping>  

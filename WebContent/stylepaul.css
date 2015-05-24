@@ -1,0 +1,16 @@
+body {
+	/*Modif Paul : avant 0px */
+  margin: 10px;
+  margin-top:70px;
+}
+
+/*Modif Paul*/
+
+.jumbotron {
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.gliphiconsize {
+	font-size : 30px;
+}
