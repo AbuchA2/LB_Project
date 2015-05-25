@@ -106,4 +106,33 @@ public static void creationficheclient(String nom, String prenom, String nomdeje
     System.out.println("successfully saved");  
       
 } 
+
+public static Utilisateur getProfil(String username) {  
+	
+    //creating configuration object  
+    Configuration cfg=new Configuration();  
+    cfg.configure("hibernate.cfg.xml");//populates the data of the configuration file  
+      
+    //creating session factory object  
+    SessionFactory factory=cfg.buildSessionFactory();  
+      
+    //creating session object  
+    Session session=factory.openSession();  
+      
+          
+    String hql = "from Utilisateur where username=:username";
+    Query query = session.createQuery(hql);
+    query.setString("username",username);
+    List results = query.list();
+    
+
+
+    session.close();  
+      
+    System.out.println("successfully saved");  
+    
+    return (Utilisateur) results.get(0);
+
+      
+}
 }  

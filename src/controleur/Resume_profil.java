@@ -8,6 +8,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import modele.StoreData;
 
 /**
  * Servlet implementation class Resume_profil
@@ -30,9 +33,26 @@ public class Resume_profil extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		request.setAttribute("person", "nimportequoi");
+		
+		
+		HttpSession s = request.getSession(true);
+		
+//		Le code suivant permet de gérer le fait que l'utilisateur est connecté ou non
+		
+		if (!(boolean) s.getAttribute("isConnected")){
+    	String nextJSP = "/connexion_test.jsp";
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
+        dispatcher.forward(request,response); 
+		}
+		else{
+		
+		request.setAttribute("person", StoreData.getProfil((String) s.getAttribute("username")));
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/resume_profil_test.jsp");
-						dispatcher.include(request, response);
+		dispatcher.include(request, response);
+		}
+						
+						
+		
 	}
 
 	/**
