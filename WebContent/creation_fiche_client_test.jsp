@@ -45,6 +45,4 @@
 		l'inscription</button>
 
 
-
-</body>
-</html>
+<%@include file="footer.jsp" %>

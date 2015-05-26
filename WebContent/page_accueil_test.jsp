@@ -21,5 +21,4 @@
 <a href= "creation_fiche_client_test.jsp" style="text-decoration:none; "><button class="btn btn-lg btn-primary btn-block" style = "margin-bottom:5px;">Votre fiche client</button></a>
 <a href= "gestionnaire_patrimoine_test.jsp" style="text-decoration:none; "><button class="btn btn-lg btn-primary btn-block" style = "margin-bottom:5px;">Votre patrimoine</button></a>
 
-</body>
-</html>
+<%@include file="footer.jsp" %>

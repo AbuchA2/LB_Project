@@ -12,5 +12,4 @@
 <h5> Prénom : </h5>
 <h5> Prénom : </h5>
 <h5> Prénom : </h5>
-</body>
-</html>
+<%@include file="footer.jsp" %></html>

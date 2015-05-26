@@ -3,5 +3,4 @@
 ${person.username}
 <h5>Adresse mail :</h5>
 ${person.email}
-</body>
-</html>
+<%@include file="footer.jsp" %>
