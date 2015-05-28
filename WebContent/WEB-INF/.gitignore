@@ -1,1 +1,12 @@
 /classes/
+/choix_produits.jsp
+/confirmation_inscription.jsp
+/connexion.jsp
+/creation_compte.jsp
+/creation_fiche_client.jsp
+/gestionnaire_patrimoine.jsp
+/page_accueil.jsp
+/resume_choix.jsp
+/resume_fiche.jsp
+/resume_profil.jsp
+/validation_souscription.jsp
