@@ -58,7 +58,7 @@ public class Creation_compte extends HttpServlet {
         
         StoreData.inscription(nomutilisateur, motdepasse, email);
         
-        String nextJSP = "/confirmation_inscription.jsp";
+        String nextJSP = "/WEB-INF/confirmation_inscription.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
         dispatcher.forward(request,response); 
 	}

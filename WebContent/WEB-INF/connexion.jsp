@@ -1,4 +1,4 @@
-<%@include file="header.jsp" %>
+<%@include file="/WEB-INF/header.jsp" %>
     
 
       <form class="form-signin" method ="POST" action ="connexion">
@@ -17,4 +17,4 @@
       </form>
       <a href= "creation_compte.jsp" style="text-decoration:none;"><button class="btn btn-lg btn-primary btn-block" >S'inscrire</button></a>
 
-<%@include file="footer.jsp" %>
+<%@include file="/WEB-INF/footer.jsp" %>

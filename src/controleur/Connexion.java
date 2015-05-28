@@ -39,7 +39,7 @@ public class Connexion extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		this.getServletContext().getRequestDispatcher("/WEB-INF/connexion").forward(request, response);
+		this.getServletContext().getRequestDispatcher("/WEB-INF/connexion.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -60,12 +60,12 @@ public class Connexion extends HttpServlet {
         	s.setAttribute("isConnected", true);
 //        	s.getAttribute("username"); a mettre danss les controlleurs pour tester si l'utilisateur est connecté
         	
-        	String nextJSP = "/page_accueil.jsp";
+        	String nextJSP = "/WEB-INF/page_accueil.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
             dispatcher.forward(request,response); 
         }
         else {
-        	String nextJSP = "/connexion.jsp";
+        	String nextJSP = "/WEB-INF/connexion.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
             dispatcher.forward(request,response); 
         }

@@ -46,7 +46,7 @@ public class Resume_profil extends HttpServlet {
 		else{
 		
 		request.setAttribute("person", StoreData.getProfil((String) s.getAttribute("username")));
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/resume_profil.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/resume_profil.jsp");
 		dispatcher.include(request, response);
 		}
 						
