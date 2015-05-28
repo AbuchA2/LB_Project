@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Gestionnaire_patrimoine
  */
-@WebServlet("/Gestionnaire_patrimoine")
+@WebServlet(name = "Gestionnaire_patrimoine" , urlPatterns = "/Gestionnaire_patrimoine")
 public class Gestionnaire_patrimoine extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

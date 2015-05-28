@@ -15,7 +15,7 @@ import modele.StoreData;
 /**
  * Servlet implementation class Resume_profil
  */
-@WebServlet(name = "resume_profil_test", urlPatterns = { "/resume_profil_test" })
+@WebServlet(name = "Resume_profil", urlPatterns = { "/resume_profil" })
 public class Resume_profil extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -40,9 +40,8 @@ public class Resume_profil extends HttpServlet {
 //		Le code suivant permet de gérer le fait que l'utilisateur est connecté ou non
 		
 		if (!(boolean) s.getAttribute("isConnected")){
-    	String nextJSP = "/connexion_test.jsp";
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
-        dispatcher.forward(request,response); 
+        this.getServletContext().getRequestDispatcher("/WEB-INF/connexion").forward(request, response) ;
+        
 		}
 		else{
 		

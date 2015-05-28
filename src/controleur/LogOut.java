@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
  * Servlet implementation class LogOut
  */
 
-@WebServlet(name = "LogOut", urlPatterns = { "/LogOut" })
+@WebServlet(name = "LogOut", urlPatterns = { "/logOut" })
 public class LogOut extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -36,9 +36,8 @@ public class LogOut extends HttpServlet {
 		HttpSession s = request.getSession(true);
     	s.setAttribute("username", "");
     	s.setAttribute("isConnected", false);
-        String nextJSP = "/connexion_test.jsp";
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
-        dispatcher.forward(request,response);
+
+    	this.getServletContext().getRequestDispatcher("/WEB-INF/connexion").forward(request, response) ;
 	}
 
 	/**

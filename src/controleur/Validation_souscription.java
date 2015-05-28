@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Validation_souscription
  */
-@WebServlet("/Validation_souscription")
+@WebServlet(name = "Validation_sosucription", urlPatterns = "/validation_souscription")
 public class Validation_souscription extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -26,7 +26,7 @@ public class Validation_souscription extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		this.getServletContext().getRequestDispatcher("/WEB-INF/validation_souscription").forward(request, response) ;
 	}
 
 	/**

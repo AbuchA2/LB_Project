@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Ecran_connexion
  */
-@WebServlet("/Ecran_connexion")
+@WebServlet(name = "Ecran_connexion", urlPatterns = "/Ecran_connexion")
 public class Ecran_connexion extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -26,7 +26,7 @@ public class Ecran_connexion extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		this.getServletContext().getRequestDispatcher("/WEB-INF/Ecran_connexion").forward(request, response) ;
 	}
 
 	/**
