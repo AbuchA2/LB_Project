@@ -60,12 +60,12 @@ public class Connexion extends HttpServlet {
         	s.setAttribute("isConnected", true);
 //        	s.getAttribute("username"); a mettre danss les controlleurs pour tester si l'utilisateur est connecté
         	
-        	String nextJSP = "/page_accueil_test.jsp";
+        	String nextJSP = "/page_accueil.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
             dispatcher.forward(request,response); 
         }
         else {
-        	String nextJSP = "/connexion_test.jsp";
+        	String nextJSP = "/connexion.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
             dispatcher.forward(request,response); 
         }

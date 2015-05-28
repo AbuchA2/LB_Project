@@ -23,7 +23,7 @@
 				</button>
 				<div class="container">
 				
-				<a class="navbar-brand" href="page_accueil_test.jsp"><span class= "gliphiconsize glyphicon glyphicon-euro"> </span> La Banque</a>
+				<a class="navbar-brand" href="page_accueil.jsp"><span class= "gliphiconsize glyphicon glyphicon-euro"> </span> La Banque</a>
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="logOut">Déconnexion</a> </il>
 				</ul>
