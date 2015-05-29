@@ -40,7 +40,7 @@ public class Resume_profil extends HttpServlet {
 //		Le code suivant permet de gérer le fait que l'utilisateur est connecté ou non
 		
 		if (!(boolean) s.getAttribute("isConnected")){
-        this.getServletContext().getRequestDispatcher("/WEB-INF/connexion").forward(request, response) ;
+        this.getServletContext().getRequestDispatcher("/WEB-INF/connexion.jsp").forward(request, response) ;
         
 		}
 		else{

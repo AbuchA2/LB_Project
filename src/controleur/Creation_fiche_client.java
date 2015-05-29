@@ -18,7 +18,7 @@ import modele.StoreData;
  * Servlet implementation class creation_fiche_client
  */
 
-@WebServlet(name = "creation_fiche_client", urlPatterns = { "/creation_fiche_client" })
+@WebServlet(name = "Creation_fiche_client", urlPatterns = { "/creation_fiche_client" })
 public class Creation_fiche_client extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	public static final String CHAMP_NOM = "nom";
@@ -43,7 +43,7 @@ public class Creation_fiche_client extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		this.getServletContext().getRequestDispatcher("/WEB-INF/creation_fiche_client") ;
+		this.getServletContext().getRequestDispatcher("/WEB-INF/creation_fiche_client.jsp") ;
 	}
 
 	/**

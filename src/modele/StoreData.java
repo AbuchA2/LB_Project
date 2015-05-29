@@ -136,8 +136,8 @@ public static Utilisateur getProfil(String username) {
       
 }
 
-public static void modificationprofil(String password, String email) {  
-    
+public static void modificationprofil(String username, String password, String email) {  
+	
     //creating configuration object  
     Configuration cfg=new Configuration();  
     cfg.configure("hibernate.cfg.xml");//populates the data of the configuration file  
@@ -151,11 +151,16 @@ public static void modificationprofil(String password, String email) {
     //creating transaction object  
     Transaction t=session.beginTransaction();  
           
-    Utilisateur e1=new Utilisateur();  
-    e1.setEmail(email);
-    e1.setPassword(password);
+   
+    Utilisateur currentUser = getProfil(username) ;
     
-    session.persist(e1);//persisting the object  
+    
+    
+    currentUser.setUsername(username);
+    currentUser.setEmail(email);
+    currentUser.setPassword(password);
+    
+    session.persist(currentUser);//persisting the object  
       
     t.commit();//transaction is committed  
     session.close();  
