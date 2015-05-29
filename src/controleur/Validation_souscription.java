@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Validation_souscription
  */
-@WebServlet(name = "Validation_sosucription", urlPatterns = "/validation_souscription")
+@WebServlet(name = "Validation_souscription", urlPatterns = "/validation_souscription")
 public class Validation_souscription extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Page_accueil
  */
-@WebServlet(name = "Page_accueil", urlPatterns = "/Page_accueil")
+@WebServlet(name = "Page_accueil", urlPatterns = "/page_accueil")
 public class Page_accueil extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -26,7 +26,7 @@ public class Page_accueil extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		this.getServletContext().getRequestDispatcher("/WEB-INF/page_accueil").forward(request, response) ;
+		this.getServletContext().getRequestDispatcher("/WEB-INF/page_accueil.jsp").forward(request, response) ;
 	}
 
 	/**

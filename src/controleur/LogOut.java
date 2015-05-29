@@ -37,7 +37,7 @@ public class LogOut extends HttpServlet {
     	s.setAttribute("username", "");
     	s.setAttribute("isConnected", false);
 
-    	this.getServletContext().getRequestDispatcher("/WEB-INF/connexion").forward(request, response) ;
+    	this.getServletContext().getRequestDispatcher("/WEB-INF/connexion.jsp").forward(request, response) ;
 	}
 
 	/**
