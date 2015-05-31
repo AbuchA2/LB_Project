@@ -39,7 +39,7 @@ public class Localisateur_agence extends HttpServlet {
 		
 		request.setAttribute("agence", StoreData.getLocalisation());
 
-
+		System.out.println(StoreData.getLocalisation());
 
     	this.getServletContext().getRequestDispatcher("/WEB-INF/localisateur_agence.jsp").forward(request, response) ;
 	}

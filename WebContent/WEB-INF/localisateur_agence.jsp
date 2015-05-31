@@ -1,4 +1,9 @@
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@include file="header.jsp" %>
+
 <style>
  #map-canvas { 
  	min-height: 500px;
@@ -9,8 +14,11 @@
  	background-border: 2px solid red;
  
  }
- 
-</style>
+ </style>
+
+
+
+${item.name}
 
 
     <script type="text/javascript"
@@ -24,8 +32,9 @@
         };
         var map = new google.maps.Map(document.getElementById('map-canvas'),
             mapOptions);
-        var testtest = new google.maps.LatLng(-25.363882,131.044922);
-        var marker = new google.maps.Marker({
+        <c:forEach items="${agence}" var="item">
+        var testtest = new google.maps.LatLng(${item.lat},${item.longi});
+        var marker${item.id} = new google.maps.Marker({
               position: testtest ,
               map: map,
               title: 'Hello World!'
@@ -38,15 +47,15 @@
       google.maps.event.addListener(marker, 'click', function() {
           infowindow.open(map,marker);
         });
+      </c:forEach>
       }
       google.maps.event.addDomListener(window, 'load', initialize);
     </script>
-<div id="map-canvas"></div>
 
-${agence.name}
-${agence.adress}
-${agence.lat}
-${agence.longi}
+
+
+
+<div id="map-canvas"></div>
 
 
 <%@include file="footer.jsp" %>
