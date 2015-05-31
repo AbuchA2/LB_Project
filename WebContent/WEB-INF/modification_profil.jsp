@@ -1,7 +1,7 @@
 <%@include file="header.jsp" %>
 
 
-      <form class="form-signin" method="POST" action="creation_compte">
+      <form class="form-signin" method="POST" action="modification_profil">
         <label for="inputPassword" class="sr-only">Mot de passe</label>
         <input type="password" name="motdepasse" id="inputPassword" class="form-control" placeholder="Mot de Passe" required>
         <label for="inputConfirmationPassword" class="sr-only">Confirmation du mot de passe</label>

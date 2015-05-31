@@ -17,7 +17,11 @@ import modele.StoreData;
 @WebServlet(name = "Modification_Profil", urlPatterns = "/modification_profil")
 public class Modification_Profil extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    public static final String CHAMP_PASS = "motdepasse";
+    public static final String CHAMP_PASS2 = "confirmpasse";
+    public static final String CHAMP_EMAIL = "email";
+    public static final String CHAMP_EMAIL2 = "confirmmail";
+
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -49,9 +53,12 @@ public class Modification_Profil extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession s = request.getSession(true);
-		this.getServletContext().getRequestDispatcher("/WEB-INF/modification_profil.jsp").forward(request, response) ;
-		StoreData.modificationprofil((String) s.getAttribute("username"), (String) s.getAttribute("password"), (String) s.getAttribute("email"));
+	    String password = request.getParameter( CHAMP_PASS );
+	    String email = request.getParameter( CHAMP_EMAIL );
+		StoreData.modificationprofil((String) s.getAttribute("username"), password, email);
 		
+		
+		this.getServletContext().getRequestDispatcher("/WEB-INF/modification_profil.jsp").forward(request, response) ;
 		System.out.println ("Ca marche");
 	}
 

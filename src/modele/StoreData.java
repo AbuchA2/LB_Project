@@ -151,16 +151,16 @@ public static void modificationprofil(String username, String password, String e
     //creating transaction object  
     Transaction t=session.beginTransaction();  
           
-   
+    System.out.println(username); 
     Utilisateur currentUser = getProfil(username) ;
     
     
     
-    currentUser.setUsername(username);
+
     currentUser.setEmail(email);
     currentUser.setPassword(password);
     
-    session.persist(currentUser);//persisting the object  
+    session.merge(currentUser);//persisting the object  
       
     t.commit();//transaction is committed  
     session.close();  
@@ -168,4 +168,33 @@ public static void modificationprofil(String username, String password, String e
     System.out.println("successfully saved");  
       
 }  
+public static List<Localisation> getLocalisation() {  
+	
+    //creating configuration object  
+    Configuration cfg=new Configuration();  
+    cfg.configure("hibernate.cfg.xml");//populates the data of the configuration file  
+      
+    //creating session factory object  
+    SessionFactory factory=cfg.buildSessionFactory();  
+      
+    //creating session object  
+    Session session=factory.openSession();  
+      
+          
+    String hql = "from Localisation";
+    Query query = session.createQuery(hql);
+
+    List<Localisation> results = query.list();
+    
+
+
+    session.close();  
+      
+    System.out.println("successfully saved");  
+    
+    return results;
+
+      
+}
+
 }  

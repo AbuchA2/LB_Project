@@ -43,7 +43,7 @@ public class Creation_fiche_client extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		this.getServletContext().getRequestDispatcher("/WEB-INF/creation_fiche_client.jsp") ;
+		this.getServletContext().getRequestDispatcher("/WEB-INF/creation_fiche_client.jsp").forward(request, response) ;
 	}
 
 	/**
