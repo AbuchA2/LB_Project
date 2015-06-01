@@ -18,42 +18,70 @@
 
 
 
-${item.name}
-
-
     <script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js">
     </script>
-    <script type="text/javascript">
-      function initialize() {
-        var mapOptions = {
-          center: { lat: 48, lng: 2},
-          zoom: 8
-        };
-        var map = new google.maps.Map(document.getElementById('map-canvas'),
-            mapOptions);
-        <c:forEach items="${agence}" var="item">
-        var testtest = new google.maps.LatLng(${item.lat},${item.longi});
-        var marker${item.id} = new google.maps.Marker({
-              position: testtest ,
-              map: map,
-              title: 'Hello World!'
-          });
-        var contentString = 'test';
+<script>
 
-        var infowindow = new google.maps.InfoWindow({
-            content: contentString
-        });
+   var geocoder;
+   var map;
+
+   function initialize() {
+    geocoder = new google.maps.Geocoder();
+    var mapCanvas = document.getElementById('map-canvas');
+    var mapOptions = {
+     center: new google.maps.LatLng(0, 0),
+     zoom: 11,
+     mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+    map = new google.maps.Map(mapCanvas, mapOptions);
+    loadMarkers();
+   }
+
+   function adressToMarker(address, desc) {
+    geocoder.geocode({'address': address}, function(results, status) {
+     if (status == google.maps.GeocoderStatus.OK) {
+      //map.setCenter(results[0].geometry.location);
+      var infowindow = new google.maps.InfoWindow({
+       content: desc
+      });
+
+      var marker = new google.maps.Marker({
+       map: map,
+       position: results[0].geometry.location
+      });
       google.maps.event.addListener(marker, 'click', function() {
-          infowindow.open(map,marker);
-        });
-      </c:forEach>
-      }
-      google.maps.event.addDomListener(window, 'load', initialize);
-    </script>
+       infowindow.open(map, marker);
+      });
+     } else {
+      console.log("Geocode was not successful for the following reason: " + status);
+     }
+    });
+   }
+
+   function centerOnAdress(address) {
+    geocoder.geocode({'address': address}, function(results, status) {
+     if (status == google.maps.GeocoderStatus.OK) {
+      map.setCenter(results[0].geometry.location);
+     } else {
+      console.log("Geocode was not successful for the following reason: " + status);
+     }
+    });
+   }
+
+   function loadMarkers() {
+
+    <c:forEach items="${agences}" var="agence">
+     adressToMarker("${agence.adress} ${agence.code_postal}", "${agence.name} ${agence.desc}");
+    </c:forEach>
 
 
-
+    centerOnAdress("${adresse}");
+    adressToMarker("${adresse}", "Vous êtes ici !");
+   }
+   
+   google.maps.event.addDomListener(window, 'load', initialize);
+  </script>
 
 <div id="map-canvas"></div>
 
