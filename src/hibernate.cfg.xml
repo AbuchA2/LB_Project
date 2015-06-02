@@ -25,6 +25,7 @@
 		<!-- List of XML mapping files -->
 		<mapping resource="utilisateur.hbm.xml" />
 		<mapping resource="client.hbm.xml" />
+		<mapping resource="localisation.hbm.xml" />
 
 	</session-factory>
 </hibernate-configuration>

@@ -12,20 +12,19 @@ import javax.servlet.http.HttpSession;
 import modele.StoreData;
 
 /**
- * Servlet implementation class Validation_souscription
+ * Servlet implementation class LogOut
  */
-@WebServlet(name = "Modification_Profil", urlPatterns = "/modification_profil")
-public class Modification_Profil extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-    public static final String CHAMP_PASS = "motdepasse";
-    public static final String CHAMP_PASS2 = "confirmpasse";
-    public static final String CHAMP_EMAIL = "email";
-    public static final String CHAMP_EMAIL2 = "confirmmail";
 
+@WebServlet(name = "Localisateur_agence", urlPatterns = { "/localisateur_agence" })
+public class Localisateur_agence extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	private static final String CHAMP_ADRESSE = "adresse";
+
+       
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Modification_Profil() {
+    public Localisateur_agence() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,17 +33,9 @@ public class Modification_Profil extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
     
-    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
-		this.getServletContext().getRequestDispatcher("/WEB-INF/modification_profil.jsp").forward(request, response) ;
-		
-		
-//		request.setAttribute("person", StoreData.getProfil((String) s.getAttribute("username")));
-		
+		// TODO Auto-generated method stub
 
-		
 	}
 
 	/**
@@ -52,14 +43,20 @@ public class Modification_Profil extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		StoreData.getLocalisation();
+		
 		HttpSession s = request.getSession(true);
-	    String password = request.getParameter( CHAMP_PASS );
-	    String email = request.getParameter( CHAMP_EMAIL );
-		StoreData.modificationprofil((String) s.getAttribute("username"), password, email);
 		
+		String adresse = request.getParameter( CHAMP_ADRESSE );
 		
-		this.getServletContext().getRequestDispatcher("/WEB-INF/modification_profil.jsp").forward(request, response) ;
-		System.out.println ("Ca marche");
+		request.setAttribute("adresse", adresse);
+		request.setAttribute("agences", StoreData.getLocalisation());
+
+		System.out.println(StoreData.getLocalisation());
+
+    	this.getServletContext().getRequestDispatcher("/WEB-INF/localisateur_agence.jsp").forward(request, response) ;
+        
+ 
 	}
 
 }
