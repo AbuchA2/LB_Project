@@ -197,4 +197,63 @@ public static List<Localisation> getLocalisation() {
       
 }
 
+public static Client getProfilClient(String nom) {  
+	
+    //creating configuration object  
+    Configuration cfg=new Configuration();  
+    cfg.configure("hibernate.cfg.xml");//populates the data of the configuration file  
+      
+    //creating session factory object  
+    SessionFactory factory=cfg.buildSessionFactory();  
+      
+    //creating session object  
+    Session session=factory.openSession();  
+      
+          
+    String hql = "from Client where nom=:nom";
+    Query query = session.createQuery(hql);
+    query.setString("nom",nom);
+    List results = query.list();
+    
+
+
+    session.close();  
+      
+    System.out.println("successfully saved");  
+    
+    return (Client) results.get(0);
+
+      
+}
+
+public static void creationficheclientcanal(String nom, String canal ) {  
+    
+    //creating configuration object  
+    Configuration cfg=new Configuration();  
+    cfg.configure("hibernate.cfg.xml");//populates the data of the configuration file  
+      
+    //creating session factory object  
+    SessionFactory factory=cfg.buildSessionFactory();  
+      
+    //creating session object  
+    Session session=factory.openSession();  
+      
+    //creating transaction object  
+    Transaction t=session.beginTransaction();  
+    
+
+	Client currentUser = getProfilClient(nom) ;   
+
+
+    currentUser.setCanal(canal);
+    
+    session.merge(currentUser);//persisting the object  
+      
+    t.commit();//transaction is committed  
+    session.close();  
+      
+    System.out.println("successfully saved");  
+      
+} 
+
 }  

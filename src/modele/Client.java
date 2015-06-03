@@ -12,13 +12,19 @@ public class Client {
 	private String adresse ;
 	private String user_mail ;
 	private String tel ;
-	private int canal ;
+	private String canal ;
 	private int produits_choisis ;
 	private String lien_PI ;
 	private String lien_JD ;
 	private String lien_IS ;
 	
 	
+	public String getCanal() {
+		return canal;
+	}
+	public void setCanal(String canal) {
+		this.canal = canal;
+	}
 	public int getId() {
 		return id;
 	}
@@ -67,12 +73,7 @@ public class Client {
 	public void setTel(String tel) {
 		this.tel = tel;
 	}
-	public int getCanal() {
-		return canal;
-	}
-	public void setCanal(int canal) {
-		this.canal = canal;
-	}
+
 	public int getProduits_choisis() {
 		return produits_choisis;
 	}
