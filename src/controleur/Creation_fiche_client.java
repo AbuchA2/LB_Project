@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import modele.StoreData;
 
@@ -52,6 +53,13 @@ public class Creation_fiche_client extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
+		HttpSession s = request.getSession(true);  
+
+        
+
+		int id = StoreData.getProfil((String) s.getAttribute("username")).getId();
+		
+		
         String nom = request.getParameter( CHAMP_NOM );
         String prenom = request.getParameter( CHAMP_PREN );
         String nom_de_jeune_fille = request.getParameter( CHAMP_NOMJEUNEFILLE );
@@ -80,7 +88,7 @@ public class Creation_fiche_client extends HttpServlet {
         System.out.println(user_mail);
         System.out.println(tel);
         
-        StoreData.creationficheclient(nom, prenom, nom_de_jeune_fille, date_de_naissance, adresse, user_mail, tel );
+        StoreData.creationficheclient(nom, prenom, nom_de_jeune_fille, date_de_naissance, adresse, user_mail, tel, id );
         
         String nextJSP = "/WEB-INF/choix_produits.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);

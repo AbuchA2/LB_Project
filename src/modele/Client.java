@@ -17,10 +17,17 @@ public class Client {
 	private String lien_PI ;
 	private String lien_JD ;
 	private String lien_IS ;
+	private int user_id ;
 	
 	
 	public String getCanal() {
 		return canal;
+	}
+	public int getUser_id() {
+		return user_id;
+	}
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
 	}
 	public void setCanal(String canal) {
 		this.canal = canal;

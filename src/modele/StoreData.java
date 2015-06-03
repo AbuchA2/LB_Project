@@ -3,6 +3,8 @@ package modele;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -74,7 +76,7 @@ public static boolean connexion(String username, String password) {
       
 }
 
-public static void creationficheclient(String nom, String prenom, String nomdejeunefille, Date datedenaissance, String adresse, String mail, String telephone ) {  
+public static void creationficheclient(String nom, String prenom, String nomdejeunefille, Date datedenaissance, String adresse, String mail, String telephone, int user_id ) {  
     
     //creating configuration object  
     Configuration cfg=new Configuration();  
@@ -88,7 +90,8 @@ public static void creationficheclient(String nom, String prenom, String nomdeje
       
     //creating transaction object  
     Transaction t=session.beginTransaction();  
-          
+
+    
     Client e1=new Client();  
     e1.setNom(nom);
     e1.setPrenom(prenom);
@@ -96,7 +99,10 @@ public static void creationficheclient(String nom, String prenom, String nomdeje
     e1.setDate_de_naissance(datedenaissance);
     e1.setAdresse(adresse);
     e1.setUser_mail(mail); 
-    e1.setTel(telephone); 
+    e1.setTel(telephone);
+    e1.setUser_id(user_id);
+    
+
     
     session.persist(e1);//persisting the object  
       

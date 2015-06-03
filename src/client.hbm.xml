@@ -21,6 +21,7 @@
     <property name="lien_PI" ></property>  
     <property name="lien_JD" ></property>  
     <property name="lien_IS" ></property>  
+        <property name="user_id" ></property>  
             
   </class>  
             
