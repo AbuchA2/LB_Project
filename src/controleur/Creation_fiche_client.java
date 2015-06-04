@@ -90,7 +90,7 @@ public class Creation_fiche_client extends HttpServlet {
         
         StoreData.creationficheclient(nom, prenom, nom_de_jeune_fille, date_de_naissance, adresse, user_mail, tel, id );
         
-        String nextJSP = "/WEB-INF/choix_produits.jsp";
+        String nextJSP = "/WEB-INF/creation_fiche_client_choix_du_canal.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
         dispatcher.forward(request,response); 
 	}

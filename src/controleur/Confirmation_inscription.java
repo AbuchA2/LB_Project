@@ -30,7 +30,7 @@ public class Confirmation_inscription extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		this.getServletContext().getRequestDispatcher("/WEB-INF/confirmation_inscription").forward(request, response);
+		this.getServletContext().getRequestDispatcher("/WEB-INF/confirmation_inscription.jsp").forward(request, response);
 		
 }
 

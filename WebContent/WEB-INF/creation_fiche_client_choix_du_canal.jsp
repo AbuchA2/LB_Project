@@ -1,7 +1,7 @@
 <%@include file="header.jsp" %>
 
 
-      <form class="form-signin" method="POST" action="creationficheclientcanal">
+      <form class="form-signin" method="POST" action="creation_fiche_client_choix_du_canal">
       
      
      	<input type="radio" name="Canal" value="Mail"><label for="Mail">Mail</label><br>
