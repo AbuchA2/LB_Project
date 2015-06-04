@@ -49,9 +49,9 @@
          <div class="col-md-4"><a href= "recherche_agence" style="text-decoration:none; "><button class="btn btn-lg btn-primary btn-block" style = "margin-bottom:5px;">Recherche d'agence</button></a></div>
       </div>
             <div class="row">
-       <!--  <div class="col-md-4"><a href= "resume_profil" style="text-decoration:none; "><button class="btn btn-lg btn-primary btn-block" style = "margin-bottom:5px;">Résumé Profil</button></a></div>
-        <div class="col-md-4"><a href= "resume_profil" style="text-decoration:none; "><button class="btn btn-lg btn-primary btn-block" style = "margin-bottom:5px;">Résumé Profil</button></a></div>
-        <div class="col-md-4"><a href= "resume_profil" style="text-decoration:none; "><button class="btn btn-lg btn-primary btn-block" style = "margin-bottom:5px;">Résumé Profil</button></a></div> -->
+       <div class="col-md-4"><a href= "creation_fiche_client_choix_du_canal" style="text-decoration:none; "><button class="btn btn-lg btn-primary btn-block" style = "margin-bottom:5px;">Choix du canal</button></a></div>
+      <div class="col-md-4"><a href= "choix_produits" style="text-decoration:none; "><button class="btn btn-lg btn-primary btn-block" style = "margin-bottom:5px;">Choix produits</button></a></div>
+      <!--     <div class="col-md-4"><a href= "resume_profil" style="text-decoration:none; "><button class="btn btn-lg btn-primary btn-block" style = "margin-bottom:5px;">Résumé Profil</button></a></div> -->
       </div>
 </div>
 

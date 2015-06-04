@@ -20,7 +20,9 @@ public class Choix_produits extends HttpServlet {
 	public static final String CHAMP_LIVRET = "livretA";
     public static final String CHAMP_PEL = "pel";
     public static final String CHAMP_COMPTE = "comptebancaire";
-    public static final String CHAMP_CARTE = "cartebancaire";
+    public static final String CHAMP_CARTENATIONALE = "cartebancairenationale";
+    public static final String CHAMP_CARTEINTERNATIONALE = "cartebancaireinternationale";
+    public static final String CHAMP_CARTEPLATINE = "cartebancaireplatine";
 
     
 	
@@ -36,7 +38,7 @@ public class Choix_produits extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		this.getServletContext().getRequestDispatcher("/WEB-INF/choix_produits").forward(request, response) ;
+		this.getServletContext().getRequestDispatcher(VUE).forward(request, response) ;
 	}
 
 	/**
@@ -48,7 +50,10 @@ public class Choix_produits extends HttpServlet {
         String livretA = request.getParameter( CHAMP_LIVRET );
         String pel = request.getParameter( CHAMP_PEL );
         String comptebancaire = request.getParameter( CHAMP_COMPTE );
-        String cartebancaire = request.getParameter( CHAMP_CARTE );
+        String cartebancairenationale = request.getParameter( CHAMP_CARTENATIONALE );
+        String cartebancaireinternationale = request.getParameter( CHAMP_CARTEINTERNATIONALE );
+        String cartebancaireplatine = request.getParameter( CHAMP_CARTEPLATINE );
+        
 	}
 
 }
