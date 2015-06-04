@@ -7,12 +7,25 @@
 		version="3.0">
 		  <display-name>LB_Project</display-name>
 		  <welcome-file-list>
-		   <!-- <welcome-file>connexion.html</welcome-file> -->
 		   <welcome-file>connexion.htm</welcome-file>
 		    <welcome-file>connexion.jsp</welcome-file>
-		   <!-- <welcome-file>default.htm</welcome-file>  -->
-		    <welcome-file>default.jsp</welcome-file>
+		    <welcome-file>Index.jsp</welcome-file>
 		  </welcome-file-list>
+		  
+		  <servlet>
+				<servlet-name>Creation_fiche_client</servlet-name>
+				<servlet-class>controleur.Creation_fiche_client</servlet-class>
+				<init-param>
+					<param-name>chemin</param-name> 
+					<param-value>/fichiers/</param-value> 
+				</init-param>
+			<multipart-config>
+				<location>D:/Images/Temp_LB</location>
+				<max-file-size>10485760*5</max-file-size> <!-- 10 Mo -->
+				<max-request-size>52428800*5</max-request-size> <!-- 5 x 10 Mo -->
+				<file-size-threshold>1048576*5</file-size-threshold> <!-- 1 Mo -->
+			</multipart-config>
+		  </servlet>
 		  
 	</web-app>
 </xml>
