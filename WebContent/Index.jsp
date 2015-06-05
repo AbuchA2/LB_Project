@@ -47,6 +47,7 @@
         <div class="col-md-4"><a href= "page_accueil" style="text-decoration:none; "><button class="btn btn-lg btn-primary btn-block" style = "margin-bottom:5px;">Page d'accueil</button></a></div>
         <div class="col-md-4"><a href= "creation_compte" style="text-decoration:none; "><button class="btn btn-lg btn-primary btn-block" style = "margin-bottom:5px;">Création de compte</button></a></div>
          <div class="col-md-4"><a href= "recherche_agence" style="text-decoration:none; "><button class="btn btn-lg btn-primary btn-block" style = "margin-bottom:5px;">Recherche d'agence</button></a></div>
+         <div class="col-md-4"><a href= "simulateur_epargne" style="text-decoration:none; "><button class="btn btn-lg btn-primary btn-block" style = "margin-bottom:5px;"> Simuler votre épargne </button></a></div>
       </div>
             <div class="row">
        <!--  <div class="col-md-4"><a href= "resume_profil" style="text-decoration:none; "><button class="btn btn-lg btn-primary btn-block" style = "margin-bottom:5px;">Résumé Profil</button></a></div>
