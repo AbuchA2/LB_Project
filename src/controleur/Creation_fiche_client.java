@@ -11,15 +11,14 @@ import java.text.SimpleDateFormat;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-<<<<<<< HEAD
 import javax.servlet.http.Part;
-=======
 import javax.servlet.http.HttpSession;
->>>>>>> branch 'master' of https://github.com/AbuchA2/LB_Project.git
 
 import modele.StoreData;
 
@@ -27,7 +26,9 @@ import modele.StoreData;
  * Servlet implementation class creation_fiche_client
  */
 
-@WebServlet(name = "Creation_fiche_client", urlPatterns = { "/creation_fiche_client" })
+@WebServlet(name = "Creation_fiche_client", urlPatterns = "/creation_fiche_client" , initParams = @WebInitParam (name = "chemin", value="D:/Images/Images_LB"))
+@MultipartConfig( location = "D:/Images/Temp_LB", maxFileSize = 10 * 1024 * 1024, maxRequestSize = 5 * 10 * 1024 * 1024, fileSizeThreshold = 1024 * 1024 )
+
 public class Creation_fiche_client extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	public static final String CHAMP_NOM = "nom";
@@ -67,20 +68,17 @@ public class Creation_fiche_client extends HttpServlet {
 		
 		String chemin = this.getServletConfig().getInitParameter("chemin") ;
 		
-		HttpSession s = request.getSession(true);  
+		//HttpSession s = request.getSession(true);    
 
-        
-
-		int id = StoreData.getProfil((String) s.getAttribute("username")).getId();
+		//int id = StoreData.getProfil((String) s.getAttribute("username")).getId();
 		
-		
-        String nom = request.getParameter( CHAMP_NOM );
+        /*String nom = request.getParameter( CHAMP_NOM );
         String prenom = request.getParameter( CHAMP_PREN );
         String nom_de_jeune_fille = request.getParameter( CHAMP_NOMJEUNEFILLE );
         Date date_de_naissance = null;
         String adresse = request.getParameter( CHAMP_ADRESSE );
         String user_mail = request.getParameter( CHAMP_USERMAIL );
-        String tel = request.getParameter( CHAMP_TEL );
+        String tel = request.getParameter( CHAMP_TEL ); */
         
         Part lien_PI = request.getPart(CHAMP_LIEN_PI);
         String nomFichierPI = getNomFichier(lien_PI);
@@ -92,11 +90,12 @@ public class Creation_fiche_client extends HttpServlet {
         String nomFichierIS = getNomFichier(lien_IS); */
         
         
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-        String dateInString = request.getParameter( CHAMP_DATENAISSANCE );
+        /* SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        String dateInString = request.getParameter( CHAMP_DATENAISSANCE ); */
         
         if ( nomFichierPI != null && !nomFichierPI.isEmpty() ) {
             String nomChampPI = lien_PI.getName();
+            ecrireFichier (lien_PI, nomFichierPI, chemin) ;
             request.setAttribute( nomChampPI, nomFichierPI );
         }
 
@@ -110,9 +109,7 @@ public class Creation_fiche_client extends HttpServlet {
             request.setAttribute( nomChampIS, nomFichierIS );
         } */
         
-        ecrireFichier (lien_PI, nomFichierPI, chemin) ;
-        
-        try {
+        /* try {
         
          date_de_naissance = formatter.parse(dateInString);
         
@@ -129,7 +126,7 @@ public class Creation_fiche_client extends HttpServlet {
         System.out.println(user_mail);
         System.out.println(tel);
         
-        StoreData.creationficheclient(nom, prenom, nom_de_jeune_fille, date_de_naissance, adresse, user_mail, tel, id );
+        StoreData.creationficheclient(nom, prenom, nom_de_jeune_fille, date_de_naissance, adresse, user_mail, tel, id ); */
         
         String nextJSP = "/WEB-INF/creation_fiche_client_choix_du_canal.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
@@ -138,23 +135,29 @@ public class Creation_fiche_client extends HttpServlet {
 	}
 	
 	private static String getNomFichier( Part part ) {
-	    for ( String contentDisposition : part.getHeader( "content-disposition" ).split( ";" ) ) {
+	    for ( String contentDisposition : part.getHeader( "Content-Disposition" ).split( ";" ) ) {
 	        if ( contentDisposition.trim().startsWith("filename") ) {
 	            return contentDisposition.substring( contentDisposition.indexOf( '=' ) + 1 );
 	        }
 	    }
 	    return null;
 	}
+		
 	
 	private void ecrireFichier( Part part, String nomFichier, String chemin ) throws IOException {
-	    BufferedInputStream entree = null;
-	    BufferedOutputStream sortie = null;
+	    BufferedInputStream entree = null ;
+	    BufferedOutputStream sortie = null ;
 	    try {
 	        entree = new BufferedInputStream( part.getInputStream(), TAILLE_TAMPON );
-	        sortie = new BufferedOutputStream( new FileOutputStream( new File( chemin + nomFichier ) ),
-	                TAILLE_TAMPON );
+	        sortie = new BufferedOutputStream( new FileOutputStream( new File( chemin + nomFichier ) ), TAILLE_TAMPON );
+	        
+	        byte[] tampon = new byte[TAILLE_TAMPON];
+	        int longueur;
+	        while ( ( longueur = entree.read( tampon ) ) > 0 ) {
+	            sortie.write( tampon, 0, longueur );
+	        }
 	 
-	    } finally {
+	      } finally {
 	        try {
 	            sortie.close();
 	        } catch ( IOException ignore ) {
@@ -163,7 +166,7 @@ public class Creation_fiche_client extends HttpServlet {
 	            entree.close();
 	        } catch ( IOException ignore ) {
 	        }
-	    }
+	    } 
 	}
 
 }
