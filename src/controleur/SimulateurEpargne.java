@@ -25,28 +25,46 @@ public class SimulateurEpargne extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		String resultat = request.getParameter("resultat") ;
+		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/simulateur_epargne.jsp").forward(request, response) ;
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
+		response.setContentType("text/html");
+		PrintWriter out = response.getWriter();
 		
-		int montant = Integer.parseInt(request.getParameter("montant"));
-		int mois = Integer.parseInt(request.getParameter("mois"));
-		int montant2 = Integer.parseInt(request.getParameter("montant2"));
-		int mois2 = Integer.parseInt(request.getParameter("mois2"));
-		double total = LivretA(montant,mois);
-		double total2 = PEL(montant2,mois2);
+		String LivretA = request.getParameter("LivretA");		
+		String PEL = request.getParameter("PEL");
 		
-		System.out.println(total);
-		System.out.println(total2);
+		double sstotal = 0 ;
+		double sstotal2 = 0 ;
+		
+		if (LivretA != null){
+			
+			int montant = Integer.parseInt(request.getParameter("montant"));
+			int mois = Integer.parseInt(request.getParameter("mois"));
+			
+			sstotal = LivretA(montant,mois);
+		}
+		
+		if (PEL != null){
+			
+			int montant2 = Integer.parseInt(request.getParameter("montant2"));
+			int mois2 = Integer.parseInt(request.getParameter("mois2"));
+
+			sstotal2 = PEL(montant2,mois2);		
+		}
+		
+		double total = sstotal + sstotal2 ;
+		
+		String resultat = String.valueOf(total);
+		
+		request.setAttribute(resultat, resultat);
+
 		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/simulateur_epargne.jsp").forward(request, response);
 		
