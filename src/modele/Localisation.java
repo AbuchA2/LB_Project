@@ -39,13 +39,5 @@ public class Localisation {
 	}
 	public void setDesc(String desc) {
 		this.desc = desc;
-	}
-
-	
-	
-
-
-	
-	
-	
+	}	
 }

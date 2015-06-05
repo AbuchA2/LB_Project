@@ -1,7 +1,11 @@
 package controleur;
 
 import java.io.IOException;
+import java.util.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,19 +16,18 @@ import javax.servlet.http.HttpSession;
 import modele.StoreData;
 
 /**
- * Servlet implementation class LogOut
+ * Servlet implementation class creation_fiche_client
  */
 
-@WebServlet(name = "Localisateur_agence", urlPatterns = { "/localisateur_agence" })
-public class Localisateur_agence extends HttpServlet {
+@WebServlet(name = "Creation_fiche_client_choix_du_canal", urlPatterns = { "/creation_fiche_client_choix_du_canal" })
+public class Creation_fiche_client_choix_du_canal extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final String CHAMP_ADRESSE = "adresse";
-
+	public static final String CHAMP_CANAL = "canal";
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Localisateur_agence() {
+    public Creation_fiche_client_choix_du_canal() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,10 +35,8 @@ public class Localisateur_agence extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-
+		this.getServletContext().getRequestDispatcher("/WEB-INF/creation_fiche_client_choix_du_canal.jsp").forward(request, response) ;
 	}
 
 	/**
@@ -43,20 +44,18 @@ public class Localisateur_agence extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		StoreData.getLocalisation();
-		
 		HttpSession s = request.getSession(true);
-		
-		String adresse = request.getParameter( CHAMP_ADRESSE );
-		
-		request.setAttribute("adresse", adresse);
-		request.setAttribute("agences", StoreData.getLocalisation());
+        String canal = request.getParameter( CHAMP_CANAL );
+      
 
-		System.out.println(StoreData.getLocalisation());
+        System.out.println(canal);
 
-    	this.getServletContext().getRequestDispatcher("/WEB-INF/localisateur_agence.jsp").forward(request, response) ;
         
- 
+        StoreData.creationficheclientcanal((String) s.getAttribute("name") , canal);
+        
+        String nextJSP = "/WEB-INF/choix_produits.jsp";
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
+        dispatcher.forward(request,response); 
 	}
 
 }

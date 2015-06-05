@@ -2,7 +2,7 @@
 
 	<form class="form-signin" method="POST" action="creation_fiche_client">
 	
-		<label for="inputFirstName" class="sr-only">Nom</label> <input
+		<label for="inputFirstName" class="sr-only" enctype="multipart/form-data">Nom</label> <input
 			type="text" name="nom" id="inputFirstName" class="form-control"
 			placeholder="Nom" required autofocus> 
 			
@@ -34,8 +34,22 @@
 			class="form-control" placeholder="Téléphone">
 			
 		<br>
+			
+	<div class="form-group">		
+		<label for="lien_PI" class="sr_only">Pièce d'identité :</label>
+		<input type="file" name="lien_PI" id="lien_PI" class="form-control" placeholder="lien vers l'image de votre pièce d'indentité">
+			
+	<!-- <label for="lien_JD" class="sr_only">Justificatif de domicile :</label>
+		<input type="file" name="lien_JD" id="lien_JD" class="form-control" placeholder="lien vers l'image de votre justificatif de domicile">
+
+		<label for="lien_IS" class="sr_only">Feuille de salaire :</label>
+		<input type="file" name="lien_IS" id="lien_IS" class="form-control" placeholder="lien vers l'image de votre "> -->
+	</div>
+	
+		<br>
 		<button class="btn btn-lg btn-primary btn-block" type="submit" style = "margin-bottom:5px;">Envoyer
 			la fiche client</button>
+			
 
 	</form>
 	

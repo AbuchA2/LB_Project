@@ -1,5 +1,9 @@
 package controleur;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Date;
 import java.text.ParseException;
@@ -11,6 +15,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import javax.servlet.http.Part;
+
+import javax.servlet.http.HttpSession;
+
 
 import modele.StoreData;
 
@@ -28,6 +37,11 @@ public class Creation_fiche_client extends HttpServlet {
     public static final String CHAMP_ADRESSE = "adresse";
     public static final String CHAMP_USERMAIL = "user_mail";
     public static final String CHAMP_TEL = "tel";
+    public static final String CHAMP_LIEN_PI = "lien_PI" ;
+    public static final String CHAMP_LIEN_JD = "lien_JD" ;
+    public static final String CHAMP_LIEN_IS = "lien_IS" ;
+    
+    public static final Integer TAILLE_TAMPON = 50000 ;
 
     
        
@@ -50,7 +64,15 @@ public class Creation_fiche_client extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
+		String chemin = this.getServletConfig().getInitParameter("chemin") ;
+		
+		HttpSession s = request.getSession(true);  
+
+        
+
+		int id = StoreData.getProfil((String) s.getAttribute("username")).getId();
+		
 		
         String nom = request.getParameter( CHAMP_NOM );
         String prenom = request.getParameter( CHAMP_PREN );
@@ -60,8 +82,35 @@ public class Creation_fiche_client extends HttpServlet {
         String user_mail = request.getParameter( CHAMP_USERMAIL );
         String tel = request.getParameter( CHAMP_TEL );
         
+        Part lien_PI = request.getPart(CHAMP_LIEN_PI);
+        String nomFichierPI = getNomFichier(lien_PI);
+        
+      /*  Part lien_JD = request.getPart(CHAMP_LIEN_JD);
+        String nomFichierJD = getNomFichier(lien_JD);
+        
+        Part lien_IS = request.getPart(CHAMP_LIEN_IS);
+        String nomFichierIS = getNomFichier(lien_IS); */
+        
+        
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-        String dateInString = request.getParameter( CHAMP_DATENAISSANCE );;
+        String dateInString = request.getParameter( CHAMP_DATENAISSANCE );
+        
+        if ( nomFichierPI != null && !nomFichierPI.isEmpty() ) {
+            String nomChampPI = lien_PI.getName();
+            request.setAttribute( nomChampPI, nomFichierPI );
+        }
+
+       /* if ( nomFichierJD != null && !nomFichierJD.isEmpty() ) {
+            String nomChampJD = lien_JD.getName();
+            request.setAttribute( nomChampJD, nomFichierJD );
+        }
+
+        if ( nomFichierIS != null && !nomFichierIS.isEmpty() ) {
+            String nomChampIS = lien_IS.getName();
+            request.setAttribute( nomChampIS, nomFichierIS );
+        } */
+        
+        ecrireFichier (lien_PI, nomFichierPI, chemin) ;
         
         try {
         
@@ -80,11 +129,41 @@ public class Creation_fiche_client extends HttpServlet {
         System.out.println(user_mail);
         System.out.println(tel);
         
-        StoreData.creationficheclient(nom, prenom, nom_de_jeune_fille, date_de_naissance, adresse, user_mail, tel );
+        StoreData.creationficheclient(nom, prenom, nom_de_jeune_fille, date_de_naissance, adresse, user_mail, tel, id );
         
-        String nextJSP = "/WEB-INF/choix_produits.jsp";
+        String nextJSP = "/WEB-INF/creation_fiche_client_choix_du_canal.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
         dispatcher.forward(request,response); 
+        
+	}
+	
+	private static String getNomFichier( Part part ) {
+	    for ( String contentDisposition : part.getHeader( "content-disposition" ).split( ";" ) ) {
+	        if ( contentDisposition.trim().startsWith("filename") ) {
+	            return contentDisposition.substring( contentDisposition.indexOf( '=' ) + 1 );
+	        }
+	    }
+	    return null;
+	}
+	
+	private void ecrireFichier( Part part, String nomFichier, String chemin ) throws IOException {
+	    BufferedInputStream entree = null;
+	    BufferedOutputStream sortie = null;
+	    try {
+	        entree = new BufferedInputStream( part.getInputStream(), TAILLE_TAMPON );
+	        sortie = new BufferedOutputStream( new FileOutputStream( new File( chemin + nomFichier ) ),
+	                TAILLE_TAMPON );
+	 
+	    } finally {
+	        try {
+	            sortie.close();
+	        } catch ( IOException ignore ) {
+	        }
+	        try {
+	            entree.close();
+	        } catch ( IOException ignore ) {
+	        }
+	    }
 	}
 
 }

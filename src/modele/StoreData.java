@@ -3,6 +3,8 @@ package modele;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -74,7 +76,7 @@ public static boolean connexion(String username, String password) {
       
 }
 
-public static void creationficheclient(String nom, String prenom, String nomdejeunefille, Date datedenaissance, String adresse, String mail, String telephone ) {  
+public static void creationficheclient(String nom, String prenom, String nomdejeunefille, Date datedenaissance, String adresse, String mail, String telephone, int user_id ) {  
     
     //creating configuration object  
     Configuration cfg=new Configuration();  
@@ -88,7 +90,8 @@ public static void creationficheclient(String nom, String prenom, String nomdeje
       
     //creating transaction object  
     Transaction t=session.beginTransaction();  
-          
+
+    
     Client e1=new Client();  
     e1.setNom(nom);
     e1.setPrenom(prenom);
@@ -96,7 +99,10 @@ public static void creationficheclient(String nom, String prenom, String nomdeje
     e1.setDate_de_naissance(datedenaissance);
     e1.setAdresse(adresse);
     e1.setUser_mail(mail); 
-    e1.setTel(telephone); 
+    e1.setTel(telephone);
+    e1.setUser_id(user_id);
+    
+
     
     session.persist(e1);//persisting the object  
       
@@ -196,5 +202,64 @@ public static List<Localisation> getLocalisation() {
 
       
 }
+
+public static Client getProfilClient(String nom) {  
+	
+    //creating configuration object  
+    Configuration cfg=new Configuration();  
+    cfg.configure("hibernate.cfg.xml");//populates the data of the configuration file  
+      
+    //creating session factory object  
+    SessionFactory factory=cfg.buildSessionFactory();  
+      
+    //creating session object  
+    Session session=factory.openSession();  
+      
+          
+    String hql = "from Client where nom=:nom";
+    Query query = session.createQuery(hql);
+    query.setString("nom",nom);
+    List results = query.list();
+    
+
+
+    session.close();  
+      
+    System.out.println("successfully saved");  
+    
+    return (Client) results.get(0);
+
+      
+}
+
+public static void creationficheclientcanal(String nom, String canal ) {  
+    
+    //creating configuration object  
+    Configuration cfg=new Configuration();  
+    cfg.configure("hibernate.cfg.xml");//populates the data of the configuration file  
+      
+    //creating session factory object  
+    SessionFactory factory=cfg.buildSessionFactory();  
+      
+    //creating session object  
+    Session session=factory.openSession();  
+      
+    //creating transaction object  
+    Transaction t=session.beginTransaction();  
+    
+
+	Client currentUser = getProfilClient(nom) ;   
+
+
+    currentUser.setCanal(canal);
+    
+    session.merge(currentUser);//persisting the object  
+      
+    t.commit();//transaction is committed  
+    session.close();  
+      
+    System.out.println("successfully saved");  
+      
+} 
 
 }  
