@@ -7,14 +7,14 @@
 		
 		<br></br>
 		
-		<label for="inputmontant"> Montant à placer : </label>
-		<input type="text" name="montant" id="inputmontant" class="form-control" placeholder="(En euros)" required>
+		<label for="montant"> Montant à placer : </label>
+		<input type="number" name="montant" id="montant" class="form-control" placeholder="(En euros)">
 		<br>
 		
 		</div>
 	<br></br>
-		<label for="inputmois"> Durée du placement : </label>
-        <input type="text" name="mois" id="inputmois" class="form-control" placeholder="(En mois)"required>
+		<label for="mois"> Durée du placement : </label>
+        <input type="number" name="mois" id="mois" class="form-control" placeholder="(En mois)">
 		<br>
 	<br>
 	</br>
@@ -24,14 +24,14 @@
 	<input type="checkbox" name="PEL" id="PEL" /> <label for="PEL">PEL</label><br />
 	<br>
 
-		<label for="inputmontant2"> Montant à placer : </label>
-		<input type="text" name="montant2" id="inputmontant2" class="form-control" placeholder="(En euros)" required>
+		<label for="montant2"> Montant à placer : </label>
+		<input type="number" name="montant2" id="montant2" class="form-control" placeholder="(En euros)" >
 		<br>
 		
 		</div>
 	<br>
-		<label for="inputmois2"> Durée du placement : </label>
-        <input type="text" name="mois2" id="inputmois2" class="form-control" placeholder="(En mois)" required>
+		<label for="mois2"> Durée du placement : </label>
+        <input type="number" name="mois2" id="mois2" class="form-control" placeholder="(En mois)" >
 		<br>
 		
 
@@ -39,9 +39,10 @@
 </br>
 <br>
 </br>
-	
-	<label for="somme">Total : </label>
-	
+<button class="btn btn-lg btn-primary btn-block" type="submit" style = "margin-bottom:5px;width:150px;height:40px;text-align:center;"> Calculer </button>
+<br></br>
+	<label for="total">Total : </label>
+	<label for="resultat" class="sr-only"> Résultat </label>
 	</form>
  	  
 <%@include file="footer.jsp" %>
