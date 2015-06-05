@@ -37,9 +37,6 @@ public class SimulateurEpargne extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
-		
 		
 		int montant = Integer.parseInt(request.getParameter("montant"));
 		int mois = Integer.parseInt(request.getParameter("mois"));
@@ -50,7 +47,6 @@ public class SimulateurEpargne extends HttpServlet {
 		
 		System.out.println(total);
 		System.out.println(total2);
-		
 		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/simulateur_epargne.jsp").forward(request, response);
 		
