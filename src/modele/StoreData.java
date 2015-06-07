@@ -203,7 +203,7 @@ public static List<Localisation> getLocalisation() {
       
 }
 
-public static Client getProfilClient(String nom) {  
+public static Client getProfilClient(int id) {  
 	
     //creating configuration object  
     Configuration cfg=new Configuration();  
@@ -216,9 +216,9 @@ public static Client getProfilClient(String nom) {
     Session session=factory.openSession();  
       
           
-    String hql = "from Client where nom=:nom";
+    String hql = "from Client where user_id=:id";
     Query query = session.createQuery(hql);
-    query.setString("nom",nom);
+    query.setInteger("id",id);
     List results = query.list();
     
 
@@ -232,7 +232,7 @@ public static Client getProfilClient(String nom) {
       
 }
 
-public static void creationficheclientcanal(String nom, String canal ) {  
+public static void creationficheclientcanal(int id, String canal ) {  
     
     //creating configuration object  
     Configuration cfg=new Configuration();  
@@ -248,7 +248,7 @@ public static void creationficheclientcanal(String nom, String canal ) {
     Transaction t=session.beginTransaction();  
     
 
-	Client currentUser = getProfilClient(nom) ;   
+	Client currentUser = getProfilClient(id) ;   
 
 
     currentUser.setCanal(canal);
@@ -261,5 +261,8 @@ public static void creationficheclientcanal(String nom, String canal ) {
     System.out.println("successfully saved");  
       
 } 
+
+
+
 
 }  

@@ -13,7 +13,7 @@ public class Client {
 	private String user_mail ;
 	private String tel ;
 	private String canal ;
-	private int produits_choisis ;
+	private String produits_choisis ;
 	private String lien_PI ;
 	private String lien_JD ;
 	private String lien_IS ;
@@ -81,10 +81,11 @@ public class Client {
 		this.tel = tel;
 	}
 
-	public int getProduits_choisis() {
+
+	public String getProduits_choisis() {
 		return produits_choisis;
 	}
-	public void setProduits_choisis(int produits_choisis) {
+	public void setProduits_choisis(String produits_choisis) {
 		this.produits_choisis = produits_choisis;
 	}
 	public String getLien_PI() {

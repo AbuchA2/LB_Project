@@ -22,7 +22,7 @@ import modele.StoreData;
 @WebServlet(name = "Creation_fiche_client_choix_du_canal", urlPatterns = { "/creation_fiche_client_choix_du_canal" })
 public class Creation_fiche_client_choix_du_canal extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	public static final String CHAMP_CANAL = "canal";
+	public static final String CHAMP_CANAL = "Canal";
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -51,7 +51,7 @@ public class Creation_fiche_client_choix_du_canal extends HttpServlet {
         System.out.println(canal);
 
         
-        StoreData.creationficheclientcanal((String) s.getAttribute("name") , canal);
+        StoreData.creationficheclientcanal((int) s.getAttribute("id") , canal);
         
         String nextJSP = "/WEB-INF/choix_produits.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);

@@ -11,6 +11,12 @@
 		    <welcome-file>connexion.jsp</welcome-file>
 		    <welcome-file>Index.jsp</welcome-file>
 		  </welcome-file-list>
-		  
+		  <jsp-config>
+       <jsp-property-group>
+           <description>Config. de l'encodage des pages JSP</description>
+           <url-pattern>*.jsp</url-pattern>
+           <page-encoding>UTF-8</page-encoding>
+       </jsp-property-group>
+    </jsp-config>
 	</web-app>
 </xml>
