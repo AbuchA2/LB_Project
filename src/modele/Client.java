@@ -80,8 +80,6 @@ public class Client {
 	public void setTel(String tel) {
 		this.tel = tel;
 	}
-
-
 	public String getProduits_choisis() {
 		return produits_choisis;
 	}

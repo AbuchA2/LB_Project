@@ -44,7 +44,7 @@ public class SimulateurEpargne extends HttpServlet {
 			int montant = Integer.parseInt(request.getParameter("montant"));
 			int mois = Integer.parseInt(request.getParameter("mois"));
 			
-			sstotal = LivretA(montant,mois);
+			sstotal = floor(LivretA(montant,mois));
 		}
 		
 		if (PEL != null){
@@ -52,15 +52,14 @@ public class SimulateurEpargne extends HttpServlet {
 			int montant2 = Integer.parseInt(request.getParameter("montant2"));
 			int mois2 = Integer.parseInt(request.getParameter("mois2"));
 
-			sstotal2 = PEL(montant2,mois2);		
+			sstotal2 = floor(PEL(montant2,mois2));		
 		}
 		
 		double total = sstotal + sstotal2 ;
 		
-		String resultat = String.valueOf(total);
+		String resultat = Double.toString(total);
 		
 		request.setAttribute("resultat", resultat);
-
 		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/simulateur_epargne.jsp").forward(request, response);
 		
@@ -82,6 +81,11 @@ public class SimulateurEpargne extends HttpServlet {
 			sstotal2 = sstotal2 * (interet2 + 1);
 		}
 		return sstotal2;
+	}
+	
+	private static double floor(double a){
+		double p = Math.pow(10.0, 2) ;
+		return Math.floor((a * p) + 0.5) / p ;
 	}
 	
 }
