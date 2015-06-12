@@ -15,6 +15,6 @@
         
         
       </form>
-      <a href= "creation_compte.jsp" style="text-decoration:none;"><button class="btn btn-lg btn-primary btn-block" >S'inscrire</button></a>
+      <a href= "creation_compte" style="text-decoration:none;"><button class="btn btn-lg btn-primary btn-block" >S'inscrire</button></a>
 
 <%@include file="/WEB-INF/footer.jsp" %>

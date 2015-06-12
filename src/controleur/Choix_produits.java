@@ -17,12 +17,12 @@ public class Choix_produits extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	public static final String VUE = "/WEB-INF/choix_produits.jsp";
 	
-	public static final String CHAMP_LIVRET = "livretA";
-    public static final String CHAMP_PEL = "pel";
-    public static final String CHAMP_COMPTE = "comptebancaire";
-    public static final String CHAMP_CARTENATIONALE = "cartebancairenationale";
-    public static final String CHAMP_CARTEINTERNATIONALE = "cartebancaireinternationale";
-    public static final String CHAMP_CARTEPLATINE = "cartebancaireplatine";
+	public static final String CHAMP_LIVRET = "Livret_A";
+    public static final String CHAMP_PEL = "PEL";
+    public static final String CHAMP_COMPTE = "Compte_Bancaire";
+    public static final String CHAMP_CARTENATIONALE = "Carte_Bancaire_Nationale";
+    public static final String CHAMP_CARTEINTERNATIONALE = "Carte_Bancaire_Internationale";
+    public static final String CHAMP_CARTEPLATINE = "Carte_Bancaire_Platine";
 
     
 	
@@ -53,6 +53,9 @@ public class Choix_produits extends HttpServlet {
         String cartebancairenationale = request.getParameter( CHAMP_CARTENATIONALE );
         String cartebancaireinternationale = request.getParameter( CHAMP_CARTEINTERNATIONALE );
         String cartebancaireplatine = request.getParameter( CHAMP_CARTEPLATINE );
+        
+        System.out.println();
+        
         
 	}
 

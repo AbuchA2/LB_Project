@@ -1,9 +1,11 @@
+
+
 <!DOCTYPE html>
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="bootstrap.css" media="all" />
 <link rel="stylesheet" type="text/css" href="stylepaul.css" media="all" />
-<meta charset="utf-8" />
+<meta equiv="Content-Type" content="text/html;charset=UTF-8">
 <title>HomePage</title>
 </head>
 <body>

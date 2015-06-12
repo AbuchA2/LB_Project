@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import modele.StoreData;
+import modele.Utilisateur;
 
 /**
  * Servlet implementation class Connexion
@@ -59,6 +60,10 @@ public class Connexion extends HttpServlet {
         	s.setAttribute("username", nom);
         	s.setAttribute("isConnected", true);
 //        	s.getAttribute("username"); a mettre danss les controlleurs pour tester si l'utilisateur est connecté
+        	
+        	
+        	Utilisateur user = StoreData.getProfil(nom);
+        	s.setAttribute("id", user.getId());
         	
         	String nextJSP = "/WEB-INF/page_accueil.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
