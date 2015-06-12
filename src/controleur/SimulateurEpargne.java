@@ -63,7 +63,7 @@ public class SimulateurEpargne extends HttpServlet {
 		
 		String resultat = String.valueOf(total);
 		
-		request.setAttribute(resultat, resultat);
+		request.setAttribute(resultat, total);
 
 		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/simulateur_epargne.jsp").forward(request, response);
