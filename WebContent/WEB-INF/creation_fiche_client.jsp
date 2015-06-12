@@ -1,8 +1,7 @@
 <%@include file="header.jsp" %>
 
-	<form class="form-signin" method="POST" action="creation_fiche_client">
-<!-- 	<form class="form-signin" method="POST" action="creation_fiche_client" enctype="multipart/form-data"> -->
- 		<label for="inputFirstName" class="sr-only">Nom</label> <input
+ 	<form class="form-signin" method="POST" action="creation_fiche_client" enctype="multipart/form-data">
+ 	<label for="inputFirstName" class="sr-only">Nom</label> <input
 			type="text" name="nom" id="inputFirstName" class="form-control"
 			placeholder="Nom" required autofocus> 
 			
@@ -10,7 +9,7 @@
 			for="inputLastname" class="sr-only">Prénom</label> <input type="text" name="prenom"
 			id="inputLastname" class="form-control" placeholder="Prénom" required>
 			
-		<label for="inputnomdejeunefille" class="sr-only">Nom de jeune
+		<!-- <label for="inputnomdejeunefille" class="sr-only">Nom de jeune
 			fille</label> <input type="text" name="nom_de_jeune_fille" id="inputnomdejeunefille"
 			class="form-control" placeholder="Nom de jeune fille"> <br>
 
@@ -33,18 +32,18 @@
 		<label for="Téléphone" class="sr-only">Téléphone </label> <input type="number" name="tel" id="Téléphone"
 			class="form-control" placeholder="Téléphone">
 			
-		<br> 
+		<br> -->
 			
-	<!-- <div class="form-group">		
+	<div class="form-group">		
 		<label for="lien_PI" class="sr_only">Pièce d'identité :</label>
-		<input type="file" name="lien_PI" id="lien_PI" placeholder="lien vers l'image de votre pièce d'indentité"> -->
+		<input type="file" name="lien_PI" id="lien_PI" placeholder="lien vers l'image de votre pièce d'indentité">
 			
-	<!-- <label for="lien_JD" class="sr_only">Justificatif de domicile :</label>
-		<input type="file" name="lien_JD" id="lien_JD" class="form-control" placeholder="lien vers l'image de votre justificatif de domicile">
+	<label for="lien_JD" class="sr_only">Justificatif de domicile :</label>
+		<input type="file" name="lien_JD" id="lien_JD" placeholder="lien vers l'image de votre justificatif de domicile">
 
-		<label for="lien_IS" class="sr_only">Feuille de salaire :</label>
-		<input type="file" name="lien_IS" id="lien_IS" class="form-control" placeholder="lien vers l'image de votre "> -->
-<!-- 	</div> -->
+		<label for="lien_IS" class="sr_only">Image de signature :</label>
+		<input type="file" name="lien_IS" id="lien_IS" placeholder="lien vers l'image de votre signature">
+	</div>
 	
 		<br>
 		<button class="btn btn-lg btn-primary btn-block" type="submit" style = "margin-bottom:5px;">Envoyer

@@ -26,8 +26,8 @@ import modele.StoreData;
  * Servlet implementation class creation_fiche_client
  */
 
-//@WebServlet(name = "Creation_fiche_client", urlPatterns = "/creation_fiche_client" , initParams = @WebInitParam (name = "chemin", value="D:/Images/Images_LB"))
-@WebServlet(name = "Creation_fiche_client", urlPatterns = "/creation_fiche_client" )
+@WebServlet(name = "Creation_fiche_client", urlPatterns = "/creation_fiche_client" , initParams = @WebInitParam (name = "chemin", value="D:/Images/Images_LB/"))
+//@WebServlet(name = "Creation_fiche_client", urlPatterns = "/creation_fiche_client" )
 @MultipartConfig( location = "D:/Images/Temp_LB", maxFileSize = 10 * 1024 * 1024, maxRequestSize = 5 * 10 * 1024 * 1024, fileSizeThreshold = 1024 * 1024 )
 
 public class Creation_fiche_client extends HttpServlet {
@@ -71,48 +71,54 @@ public class Creation_fiche_client extends HttpServlet {
 		
 		HttpSession s = request.getSession(true);    
 
-		int id = StoreData.getProfil((String) s.getAttribute("username")).getId();
+		//int id = StoreData.getProfil((String) s.getAttribute("username")).getId();
 		
         String nom = request.getParameter( CHAMP_NOM );
         String prenom = request.getParameter( CHAMP_PREN );
-        String nom_de_jeune_fille = request.getParameter( CHAMP_NOMJEUNEFILLE );
+        /*String nom_de_jeune_fille = request.getParameter( CHAMP_NOMJEUNEFILLE );
         Date date_de_naissance = null;
         String adresse = request.getParameter( CHAMP_ADRESSE );
         String user_mail = request.getParameter( CHAMP_USERMAIL );
-        String tel = request.getParameter( CHAMP_TEL ); 
+        String tel = request.getParameter( CHAMP_TEL ); */
         
-//        Part lien_PI = request.getPart(CHAMP_LIEN_PI);
-//        String nomFichierPI = getNomFichier(lien_PI);
+        String dirName = chemin + nom + "_" + prenom + "/" ;
+        File dir = new File(dirName);
+        dir.mkdirs() ;
         
-      /*  Part lien_JD = request.getPart(CHAMP_LIEN_JD);
+        Part lien_PI = request.getPart(CHAMP_LIEN_PI);
+        String nomFichierPI = getNomFichier(lien_PI);
+        
+        Part lien_JD = request.getPart(CHAMP_LIEN_JD);
         String nomFichierJD = getNomFichier(lien_JD);
         
         Part lien_IS = request.getPart(CHAMP_LIEN_IS);
-        String nomFichierIS = getNomFichier(lien_IS); */
+        String nomFichierIS = getNomFichier(lien_IS);
         
         
-         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        /*SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         String dateInString = request.getParameter( CHAMP_DATENAISSANCE ); 
         
-        System.out.println(dateInString);
+        System.out.println(dateInString); */
         
-//        if ( nomFichierPI != null && !nomFichierPI.isEmpty() ) {
-//            String nomChampPI = lien_PI.getName();
-//            ecrireFichier (lien_PI, nomFichierPI, chemin) ;
-//            request.setAttribute( nomChampPI, nomFichierPI );
-//        }
+        if ( nomFichierPI != null && !nomFichierPI.isEmpty() ) {
+        	String nomChampPI = lien_PI.getName();
+            ecrireFichier (lien_PI, nomFichierPI, dirName) ;
+            request.setAttribute( nomChampPI, nomFichierPI );
+        }
 
-//        if ( nomFichierJD != null && !nomFichierJD.isEmpty() ) {
-//            String nomChampJD = lien_JD.getName();
-//            request.setAttribute( nomChampJD, nomFichierJD );
-//        }
-//
-//        if ( nomFichierIS != null && !nomFichierIS.isEmpty() ) {
-//            String nomChampIS = lien_IS.getName();
-//            request.setAttribute( nomChampIS, nomFichierIS );
-//        } 
+        if ( nomFichierJD != null && !nomFichierJD.isEmpty() ) {
+        	String nomChampJD = lien_JD.getName();        	
+            ecrireFichier(lien_JD, nomFichierJD, dirName) ;
+            request.setAttribute( nomChampJD, nomFichierJD );
+        }
+
+        if ( nomFichierIS != null && !nomFichierIS.isEmpty() ) {        	
+            String nomChampIS = lien_IS.getName();
+            ecrireFichier(lien_IS, nomFichierIS, dirName) ;
+            request.setAttribute( nomChampIS, nomFichierIS );
+        } 
         
-         try {
+        /* try {
         
          date_de_naissance = formatter.parse(dateInString);
         
@@ -129,7 +135,7 @@ public class Creation_fiche_client extends HttpServlet {
         System.out.println(user_mail);
         System.out.println(tel);
         
-        StoreData.creationficheclient(nom, prenom, nom_de_jeune_fille, date_de_naissance, adresse, user_mail, tel, id ); 
+        StoreData.creationficheclient(nom, prenom, nom_de_jeune_fille, date_de_naissance, adresse, user_mail, tel, id ); */
         
         String nextJSP = "/WEB-INF/creation_fiche_client_choix_du_canal.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
@@ -140,7 +146,7 @@ public class Creation_fiche_client extends HttpServlet {
 	private static String getNomFichier( Part part ) {
 	    for ( String contentDisposition : part.getHeader( "Content-Disposition" ).split( ";" ) ) {
 	        if ( contentDisposition.trim().startsWith("filename") ) {
-	            return contentDisposition.substring( contentDisposition.indexOf( '=' ) + 1 );
+	            return contentDisposition.substring( contentDisposition.indexOf( '=' ) + 1 ).trim().replace( "\"", "");
 	        }
 	    }
 	    return null;
