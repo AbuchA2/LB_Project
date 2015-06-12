@@ -1,7 +1,6 @@
 package controleur;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -27,15 +26,12 @@ public class SimulateurEpargne extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String resultat = request.getParameter("resultat") ;
+		
 		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/simulateur_epargne.jsp").forward(request, response) ;
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
 		
 		String LivretA = request.getParameter("LivretA");		
 		String PEL = request.getParameter("PEL");
@@ -63,7 +59,7 @@ public class SimulateurEpargne extends HttpServlet {
 		
 		String resultat = String.valueOf(total);
 		
-		request.setAttribute(resultat, total);
+		request.setAttribute("resultat", resultat);
 
 		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/simulateur_epargne.jsp").forward(request, response);
