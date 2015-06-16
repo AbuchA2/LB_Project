@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- GÃ©nÃ©rÃ© le :  Mer 03 Juin 2015 Ã  18:41
+-- Généré le :  Mar 16 Juin 2015 à 16:44
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de donnÃ©es :  `lb_db`
+-- Base de données :  `lb_db`
 --
 
 -- --------------------------------------------------------
@@ -40,11 +40,11 @@ CREATE TABLE IF NOT EXISTS `achats` (
 --
 
 CREATE TABLE IF NOT EXISTS `client` (
-  `ID` int(15) NOT NULL,
+  `ID` int(15) NOT NULL AUTO_INCREMENT,
   `nom` varchar(40) NOT NULL,
   `nom_de_jeune_fille` varchar(40) DEFAULT NULL,
   `prenom` varchar(40) NOT NULL,
-  `date_de_naissance` date NOT NULL,
+  `date_de_naissance` varchar(40) NOT NULL,
   `adresse` varchar(40) NOT NULL,
   `user_mail` varchar(40) NOT NULL,
   `tel` varchar(12) NOT NULL,
@@ -53,15 +53,19 @@ CREATE TABLE IF NOT EXISTS `client` (
   `lien_PI` varchar(40) DEFAULT NULL,
   `lien_JD` varchar(40) DEFAULT NULL,
   `lien_IS` varchar(40) DEFAULT NULL,
+  `user_id` int(40) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Contenu de la table `client`
 --
 
-INSERT INTO `client` (`ID`, `nom`, `nom_de_jeune_fille`, `prenom`, `date_de_naissance`, `adresse`, `user_mail`, `tel`, `canal`, `produits_choisis`, `lien_PI`, `lien_JD`, `lien_IS`) VALUES
-(0, 'sadzsefg', 'fdsgh', 'qdfsgh', '2000-02-08', 'zdsfgb', 'zfedgrth', '567890', 0, 0, NULL, NULL, NULL);
+INSERT INTO `client` (`ID`, `nom`, `nom_de_jeune_fille`, `prenom`, `date_de_naissance`, `adresse`, `user_mail`, `tel`, `canal`, `produits_choisis`, `lien_PI`, `lien_JD`, `lien_IS`, `user_id`) VALUES
+(1, 'sadzsefg', 'fdsgh', 'qdfsgh', '2000-02-08', 'zdsfgb', 'zfedgrth', '567890', 0, 0, NULL, NULL, NULL, 0),
+(2, 'A', 'C', 'B', '1999-11-01', 'aqwxsz', 'aqwxsz', '0123456789', NULL, NULL, NULL, NULL, NULL, 1),
+(3, 'aqwx', 'egRHE', 'fEfdf', '1999-11-11', 'QIBUYQ', 'SCHNQqinufyb', '0633850989', NULL, NULL, NULL, NULL, NULL, 1),
+(4, 'vtr', 'rftgyuijk', 'hryeuihco', '1999-11-11', 'drgyhuij', 'rtyhuijk', '0123456789', NULL, NULL, NULL, NULL, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -83,8 +87,8 @@ CREATE TABLE IF NOT EXISTS `localisation_agence` (
 --
 
 INSERT INTO `localisation_agence` (`id`, `name`, `adress`, `desc`, `code_postal`) VALUES
-(1, 'sociÃ©tÃ© gÃ©nÃ©rale', '10 rue notre dame des champs', 'HEY', 75006),
-(2, 'Chez moi !', '17 rue NÃ©laton', 'BLABLABLABLABLABLa', 75015);
+(1, 'société générale', '10 rue notre dame des champs', 'HEY', 75006),
+(2, 'Chez moi !', '17 rue Nélaton', 'BLABLABLABLABLABLa', 75015);
 
 -- --------------------------------------------------------
 
@@ -121,7 +125,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 INSERT INTO `user` (`id`, `email`, `password`, `username`) VALUES
 (1, 'aa.aa@aa.com', 'a', 'test'),
 (3, 'paul.heitz@hotmail.fr', 'goret1000', 'javgoret'),
-(4, 'gerard@aaa.com', 'aaa', 'gÃ©rard');
+(4, 'gerard@aaa.com', 'aaa', 'gérard');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
