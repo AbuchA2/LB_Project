@@ -36,24 +36,17 @@ public class Upload_fiche_client extends HttpServlet {
 
     
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+
     public Upload_fiche_client() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		this.getServletContext().getRequestDispatcher("/WEB-INF/creation_fiche_client.jsp").forward(request, response) ;
+		this.getServletContext().getRequestDispatcher("/WEB-INF/upload_fiche_client.jsp").forward(request, response) ;
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String chemin = this.getServletConfig().getInitParameter("chemin") ;

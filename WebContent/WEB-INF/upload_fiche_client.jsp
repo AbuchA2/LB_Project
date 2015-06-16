@@ -1,6 +1,6 @@
 <%@include file="header.jsp" %>
 
- 	<form class="form-signin" method="POST" action="creation_fiche_client" enctype="multipart/form-data">
+ 	<form class="form-signin" method="POST" action="upload_fiche_client" enctype="multipart/form-data">
 			
 	<div class="form-group">		
 		<label for="lien_PI" class="sr_only">Pièce d'identité :</label>
@@ -14,7 +14,7 @@
 	</div>
 	
 		<br>
-		<button class="btn btn-lg btn-primary btn-block" type="submit" style = "margin-bottom:5px;">Envoyer
+		<button href="creation_fiche_client_choix_du_canal" class="btn btn-lg btn-primary btn-block" type="submit" style="margin-bottom:5px;">Envoyer
 			la fiche client</button>
 			
 	</form>
