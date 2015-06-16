@@ -68,14 +68,15 @@ public class Creation_fiche_client extends HttpServlet {
         String nom = request.getParameter( CHAMP_NOM );
         String prenom = request.getParameter( CHAMP_PREN );
         String nom_de_jeune_fille = request.getParameter( CHAMP_NOMJEUNEFILLE );
-        Date date_de_naissance = null;
+        String date_de_naissance = request.getParameter( CHAMP_DATENAISSANCE );
+        //Date date_de_naissance = null;
         String adresse = request.getParameter( CHAMP_ADRESSE );
         String user_mail = request.getParameter( CHAMP_USERMAIL );
         String tel = request.getParameter( CHAMP_TEL );
         
         String dirName = chemin + nom + "_" + prenom + "/" ;
         
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        /*  SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         String dateInString = request.getParameter( CHAMP_DATENAISSANCE ); 
         
         System.out.println(dateInString);
@@ -87,7 +88,7 @@ public class Creation_fiche_client extends HttpServlet {
         
         } catch (ParseException e) {
          e.printStackTrace();
-        }
+        }*/
         
         
         System.out.println(nom);
