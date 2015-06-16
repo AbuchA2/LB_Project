@@ -59,19 +59,21 @@ public class Creation_fiche_client extends HttpServlet {
 		int id = StoreData.getProfil((String) s.getAttribute("username")).getId();
 		
         String nom = request.getParameter( CHAMP_NOM );
+
         String prenom = request.getParameter( CHAMP_PRENOM );
         String dirName = chemin + nom + "_" + prenom + "/" ;
         
         String nom_de_jeune_fille = request.getParameter( CHAMP_NOM_JEUNE_FILLE );
         String date_de_naissance = null ;
+
         String adresse = request.getParameter( CHAMP_ADRESSE );
         String user_mail = request.getParameter( CHAMP_USERMAIL );
         String tel = request.getParameter( CHAMP_TEL );
         
         
-        
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         date_de_naissance = request.getParameter( CHAMP_DATE_NAISSANCE ); 
+
         
         //System.out.println(dateInString);
 
