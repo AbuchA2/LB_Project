@@ -76,7 +76,7 @@ public static boolean connexion(String username, String password) {
       
 }
 
-public static void creationficheclient(String nom, String prenom, String nomdejeunefille, Date datedenaissance, String adresse, String mail, String telephone, int user_id ) {  
+public static void creationficheclient(String nom, String prenom, String nomdejeunefille, String datedenaissance, String adresse, String mail, String telephone, int user_id ) {  
     
     //creating configuration object  
     Configuration cfg=new Configuration();  
@@ -252,6 +252,38 @@ public static void creationficheclientcanal(int id, String canal ) {
 
 
     currentUser.setCanal(canal);
+    
+    session.merge(currentUser);//persisting the object  
+      
+    t.commit();//transaction is committed  
+    session.close();  
+      
+    System.out.println("successfully saved");  
+      
+} 
+
+public static void creationficheclientcanal(int id, String lien_PI, String lien_JD, String lien_IS) {  
+    
+    //creating configuration object  
+    Configuration cfg=new Configuration();  
+    cfg.configure("hibernate.cfg.xml");//populates the data of the configuration file  
+      
+    //creating session factory object  
+    SessionFactory factory=cfg.buildSessionFactory();  
+      
+    //creating session object  
+    Session session=factory.openSession();  
+      
+    //creating transaction object  
+    Transaction t=session.beginTransaction();  
+    
+
+	Client currentUser = getProfilClient(id) ;   
+
+
+    currentUser.setLien_IS(lien_IS);
+    currentUser.setLien_JD(lien_JD);
+    currentUser.setLien_PI(lien_PI);
     
     session.merge(currentUser);//persisting the object  
       

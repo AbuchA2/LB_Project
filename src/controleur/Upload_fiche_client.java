@@ -5,9 +5,6 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.Date;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -39,24 +36,17 @@ public class Upload_fiche_client extends HttpServlet {
 
     
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+
     public Upload_fiche_client() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		this.getServletContext().getRequestDispatcher("/WEB-INF/creation_fiche_client.jsp").forward(request, response) ;
+		this.getServletContext().getRequestDispatcher("/WEB-INF/upload_fiche_client.jsp").forward(request, response) ;
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String chemin = this.getServletConfig().getInitParameter("chemin") ;
@@ -96,7 +86,7 @@ public class Upload_fiche_client extends HttpServlet {
             request.setAttribute( nomChampIS, nomFichierIS );
         } 
         
-        //StoreData.creationficheclient(nom, prenom, nom_de_jeune_fille, date_de_naissance, adresse, user_mail, tel, id ); */
+        StoreData.creationficheclientcanal((int) s.getAttribute("id") , dirName + nomFichierPI, dirName + nomFichierJD, dirName + nomFichierIS);
         
         String nextJSP = "/WEB-INF/creation_fiche_client_choix_du_canal.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);

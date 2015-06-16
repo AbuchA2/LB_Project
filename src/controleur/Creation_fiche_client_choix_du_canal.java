@@ -47,10 +47,10 @@ public class Creation_fiche_client_choix_du_canal extends HttpServlet {
 		HttpSession s = request.getSession(true);
         String canal = request.getParameter( CHAMP_CANAL );
       
-
+        int id = StoreData.getProfil((String) s.getAttribute("username")).getId();
+        
         System.out.println(canal);
 
-        
         StoreData.creationficheclientcanal((int) s.getAttribute("id") , canal);
         
         String nextJSP = "/WEB-INF/choix_produits.jsp";
