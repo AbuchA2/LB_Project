@@ -1,9 +1,6 @@
 <%@include file="header.jsp" %>
 
  	<form class="form-signin" method="POST" action="creation_fiche_client" enctype="multipart/form-data">
- 	<label for="inputFirstName" class="sr-only">Nom</label> <input
-			type="text" name="nom" id="inputFirstName" class="form-control"
-			placeholder="Nom" required autofocus>
 			
 	<div class="form-group">		
 		<label for="lien_PI" class="sr_only">Pièce d'identité :</label>

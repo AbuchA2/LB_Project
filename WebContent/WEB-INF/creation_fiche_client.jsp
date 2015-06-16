@@ -9,7 +9,7 @@
 			for="inputLastname" class="sr-only">Prénom</label> <input type="text" name="prenom"
 			id="inputLastname" class="form-control" placeholder="Prénom" required>
 			
-		<!-- <label for="inputnomdejeunefille" class="sr-only">Nom de jeune
+		 <label for="inputnomdejeunefille" class="sr-only">Nom de jeune
 			fille</label> <input type="text" name="nom_de_jeune_fille" id="inputnomdejeunefille"
 			class="form-control" placeholder="Nom de jeune fille"> <br>
 
@@ -32,7 +32,7 @@
 		<label for="Téléphone" class="sr-only">Téléphone </label> <input type="number" name="tel" id="Téléphone"
 			class="form-control" placeholder="Téléphone">
 			
-		<br> -->
+		<br> 
 	
 		<br>
 		<button href= "upload_fiche_client" class="btn btn-lg btn-primary btn-block" type="submit" style = "margin-bottom:5px;"> Suivant </button>
