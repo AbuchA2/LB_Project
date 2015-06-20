@@ -2,11 +2,13 @@
 <%@include file="header.jsp" %>
     
         <div class="container">
-
+ <form method="post" action="choix_produits">
       <div class="starter-template">
         <h2>Vos produits</h2>
+       
         <p class="lead">
        Cochez les produits auxquels vous voulez souscrire :<br /><br />
+       
        <input type="checkbox" name="Livret_A" id="Livret A" /> <label for="Livret A"><a class="btn btn-lg btn-success" href="choix_produits_livretA" role="button">Livret A</a></label><br />
        <input type="checkbox" name="PEL" id="PEL" /> <label for="PEL"><a class="btn btn-lg btn-success" href="choix_produits_PEL" role="button">PEL</a></label><br />
        <input type="checkbox" name="Compte_Bancaire" id="Compte Bancaire" /> <label for="Compte Bancaire"><a class="btn btn-lg btn-success" href="choix_produits_compte_bancaire" role="button">Compte Bancaire</a></label><br />
@@ -15,9 +17,10 @@
        <input type="checkbox" name="Carte_Bancaire_Platine" id="Carte Bancaire Platine" /> <label for="Carte Bancaire Platine"><a class="btn btn-lg btn-success" href="choix_produits_carte_platine" role="button">Carte Platine</a></label>
   		 </p>
  	  </div>
+ 	  
  	          <p><a class="btn btn-lg btn-success" href="#" role="button">Suivant</a></p>
  	          <p><a class="btn btn-lg btn-danger" href="#" role="button">Annuler</a></p>
-	
+	</form>
     </div><!-- /.container -->
 
 <%@include file="footer.jsp" %>

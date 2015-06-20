@@ -55,9 +55,14 @@ public class Upload_fiche_client extends HttpServlet {
 
 		int id = StoreData.getProfil((String) s.getAttribute("username")).getId();
         
-        String dirName = (String) request.getAttribute("dirName") ;
+		
+		
+        String dirName = (String) s.getAttribute("dirName") ;
+        System.out.println(dirName);
         File dir = new File(dirName);
         dir.mkdirs() ;
+        
+        
         
         Part lien_PI = request.getPart(CHAMP_LIEN_PI);
         String nomFichierPI = getNomFichier(lien_PI);
