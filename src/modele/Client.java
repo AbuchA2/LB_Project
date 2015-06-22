@@ -8,7 +8,7 @@ public class Client {
 	private String nom ;
 	private String nom_de_jeune_fille ;
 	private String prenom ;
-	private String date_de_naissance ;
+	private Date date_de_naissance ;
 	private String adresse ;
 	private String user_mail ;
 	private String tel ;
@@ -56,10 +56,10 @@ public class Client {
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
-	public String getDate_de_naissance() {
+	public Date getDate_de_naissance() {
 		return date_de_naissance;
 	}
-	public void setDate_de_naissance(String datedenaissance) {
+	public void setDate_de_naissance(Date datedenaissance) {
 		this.date_de_naissance = datedenaissance;
 	}
 	public String getAdresse() {

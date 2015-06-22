@@ -55,14 +55,13 @@ public class Upload_fiche_client extends HttpServlet {
 		HttpSession s = request.getSession(true);    
 
 		//int id = StoreData.getProfil((String) s.getAttribute("username")).getId();
-        
-        String dirName = (String) request.getAttribute("dirName") ;
-        Enumeration<String> name = request.getAttributeNames() ;
-        String draw = name.toString() ;
-        System.out.println(draw) ;
-       
+        	
+        String dirName = (String) s.getAttribute("dirName") ;
+        System.out.println(dirName);
         File dir = new File(dirName);
         dir.mkdirs() ;
+        
+        
         
         Part lien_PI = request.getPart(CHAMP_LIEN_PI);
         String nomFichierPI = getNomFichier(lien_PI);
@@ -91,7 +90,7 @@ public class Upload_fiche_client extends HttpServlet {
             request.setAttribute( nomChampIS, nomFichierIS );
         } 
         
-        //StoreData.creationficheclientcanal((int) s.getAttribute("id") , dirName + nomFichierPI, dirName + nomFichierJD, dirName + nomFichierIS);
+        StoreData.creationficheclientcanal((int) s.getAttribute("id") , dirName + nomFichierPI, dirName + nomFichierJD, dirName + nomFichierIS);
         
         this.getServletContext().getRequestDispatcher("/WEB-INF/creation_fiche_client_choix_du_canal.jsp").forward(request, response);
 

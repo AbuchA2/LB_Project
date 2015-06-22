@@ -76,7 +76,7 @@ public static boolean connexion(String username, String password) {
       
 }
 
-public static void creationficheclient(String nom, String prenom, String nomdejeunefille, String datedenaissance, String adresse, String mail, String telephone, int user_id ) {  
+public static void creationficheclient(String nom, String prenom, String nomdejeunefille, Date datedenaissance, String adresse, String mail, String telephone, int user_id ) {  
     
     //creating configuration object  
     Configuration cfg=new Configuration();  
