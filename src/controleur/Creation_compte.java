@@ -8,7 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import controleur.PasswordHash;
 import modele.StoreData;
 
 /**
@@ -31,7 +31,6 @@ public class Creation_compte extends HttpServlet {
      */
     public Creation_compte() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -45,7 +44,7 @@ public class Creation_compte extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
         String nomutilisateur = request.getParameter( CHAMP_NOM_USER );
         String motdepasse = request.getParameter( CHAMP_PASS );
         String confirmpasse = request.getParameter( CHAMP_PASS2 );
@@ -54,13 +53,24 @@ public class Creation_compte extends HttpServlet {
         
         System.out.println(nomutilisateur);
         System.out.println(motdepasse);
+        System.out.println(confirmpasse);
         System.out.println(email);
-        
-        StoreData.inscription(nomutilisateur, motdepasse, email);
-        
-        String nextJSP = "/WEB-INF/confirmation_inscription.jsp";
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
-        dispatcher.forward(request,response); 
+
+        if(motdepasse.equals(confirmpasse)){
+        	
+        	if(email.equals(confirmail)){
+                StoreData.inscription(nomutilisateur, motdepasse, email);
+                
+                this.getServletContext().getRequestDispatcher("/WEB-INF/confirmation_inscription.jsp").forward(request, response) ;
+        	} else {
+            	request.setAttribute("erreur", "Les deux adresses mails renseignées ne sont pas identiques.");
+            	this.getServletContext().getRequestDispatcher("/WEB-INF/creation_compte.jsp").forward(request, response) ;
+        	}
+        } else {
+        	request.setAttribute("erreur", "Les deux mots de passe renseignés ne sont pas identiques.");
+        	this.getServletContext().getRequestDispatcher("/WEB-INF/creation_compte.jsp").forward(request, response) ;
+        }
+
 	}
 
 }

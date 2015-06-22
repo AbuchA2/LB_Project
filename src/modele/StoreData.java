@@ -54,9 +54,8 @@ public static boolean connexion(String username, String password) {
     SessionFactory factory=cfg.buildSessionFactory();  
       
     //creating session object  
-    Session session=factory.openSession();  
-      
-          
+    Session session=factory.openSession();
+        
     String hql = "from Utilisateur where username=:username and password=:password";
     Query query = session.createQuery(hql);
     query.setString("username",username);
