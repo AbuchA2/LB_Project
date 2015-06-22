@@ -5,6 +5,7 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Enumeration;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -23,7 +24,7 @@ import modele.StoreData;
  * Servlet implementation class creation_fiche_client
  */
 
-@WebServlet(name = "Upload_fiche_client", urlPatterns = "/upload_fiche_client" , initParams = @WebInitParam (name = "chemin", value="D:/Images/Images_LB/"))
+@WebServlet(name = "Upload_fiche_client", urlPatterns = "/upload_fiche_client")
 @MultipartConfig( location = "D:/Images/Temp_LB", maxFileSize = 10 * 1024 * 1024, maxRequestSize = 5 * 10 * 1024 * 1024, fileSizeThreshold = 1024 * 1024 )
 
 public class Upload_fiche_client extends HttpServlet {
@@ -49,14 +50,12 @@ public class Upload_fiche_client extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String chemin = this.getServletConfig().getInitParameter("chemin") ;
+		//String chemin = this.getServletConfig().getInitParameter("chemin") ;
 		
 		HttpSession s = request.getSession(true);    
 
-		int id = StoreData.getProfil((String) s.getAttribute("username")).getId();
-        
-		
-		
+		//int id = StoreData.getProfil((String) s.getAttribute("username")).getId();
+        	
         String dirName = (String) s.getAttribute("dirName") ;
         System.out.println(dirName);
         File dir = new File(dirName);
@@ -93,9 +92,8 @@ public class Upload_fiche_client extends HttpServlet {
         
         StoreData.creationficheclientcanal((int) s.getAttribute("id") , dirName + nomFichierPI, dirName + nomFichierJD, dirName + nomFichierIS);
         
-        String nextJSP = "/WEB-INF/creation_fiche_client_choix_du_canal.jsp";
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
-        dispatcher.forward(request,response); 
+        this.getServletContext().getRequestDispatcher("/WEB-INF/creation_fiche_client_choix_du_canal.jsp").forward(request, response);
+
         
 	}
 	
