@@ -32,7 +32,7 @@ public class Creation_fiche_client extends HttpServlet {
     public static final String CHAMP_USERMAIL = "user_mail";
     public static final String CHAMP_TEL = "tel";
 
-    public static final String CHEMIN = "D:/Images/Images_LB/" ;
+    public static final String CHEMIN = "C:/Images/Images_LB/" ;
 
     
        

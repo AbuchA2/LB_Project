@@ -1,4 +1,4 @@
-!<%@include file="header.jsp" %>
+<%@include file="header.jsp" %>
 
  	<form class="form-signin" method="POST" action="creation_fiche_client">
  	<label for="inputFirstName" class="sr-only">Nom</label> <input

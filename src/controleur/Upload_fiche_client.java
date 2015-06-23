@@ -26,7 +26,7 @@ import modele.StoreData;
 
 
 @WebServlet(name = "Upload_fiche_client", urlPatterns = "/upload_fiche_client")
-@MultipartConfig( location = "D:/Images/Temp_LB", maxFileSize = 10 * 1024 * 1024, maxRequestSize = 5 * 10 * 1024 * 1024, fileSizeThreshold = 1024 * 1024 )
+@MultipartConfig( location = "C:/Images/Temp_LB", maxFileSize = 10 * 1024 * 1024, maxRequestSize = 5 * 10 * 1024 * 1024, fileSizeThreshold = 1024 * 1024 )
 
 
 public class Upload_fiche_client extends HttpServlet {
