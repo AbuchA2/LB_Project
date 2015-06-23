@@ -8,11 +8,18 @@
         <input type="password" name="motdepasse" id="inputPassword" class="form-control" placeholder="Mot de Passe" required>
         <label for="inputConfirmationPassword" class="sr-only">Confirmation du mot de passe</label>
         <input type="password" name="confirmpasse" id="inputConfirmationPassword" class="form-control" placeholder="Confirmation mot de passe" required>
-        <label for="inputEmail" class="sr-only">Mot de Passe</label>
+        <label for="inputEmail" class="sr-only">Email</label>
         <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Adresse mail" required>
         <label for="inputConfirmationMail" class="sr-only">Confirmation Mail</label>
         <input type="email" name="confirmmail" id="inputConfirmationMail" class="form-control" placeholder="Confirmation adresse mail" required>
 		<br>
+			<% String erreur = (String) request.getAttribute("erreur") ;
+        		if (erreur != null){
+					out.println(erreur) ;
+        		}
+			%>
+		<br>
+		<br>	
         <button class="btn btn-lg btn-primary btn-block" type="submit">Valider</button>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Annuler</button>
       </form>

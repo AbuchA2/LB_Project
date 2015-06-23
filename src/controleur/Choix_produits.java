@@ -54,7 +54,9 @@ public class Choix_produits extends HttpServlet {
         String cartebancaireinternationale = request.getParameter( CHAMP_CARTEINTERNATIONALE );
         String cartebancaireplatine = request.getParameter( CHAMP_CARTEPLATINE );
         
-        System.out.println();
+        
+        
+        System.out.println(livretA);
         
         
 	}

@@ -54,9 +54,8 @@ public static boolean connexion(String username, String password) {
     SessionFactory factory=cfg.buildSessionFactory();  
       
     //creating session object  
-    Session session=factory.openSession();  
-      
-          
+    Session session=factory.openSession();
+        
     String hql = "from Utilisateur where username=:username and password=:password";
     Query query = session.createQuery(hql);
     query.setString("username",username);
@@ -76,7 +75,7 @@ public static boolean connexion(String username, String password) {
       
 }
 
-public static void creationficheclient(String nom, String prenom, String nomdejeunefille, String datedenaissance, String adresse, String mail, String telephone, int user_id ) {  
+public static void creationficheclient(String nom, String prenom, String nomdejeunefille, Date datedenaissance, String adresse, String mail, String telephone, int user_id ) {  
     
     //creating configuration object  
     Configuration cfg=new Configuration();  

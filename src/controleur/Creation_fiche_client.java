@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +20,7 @@ import modele.StoreData;
  * Servlet implementation class creation_fiche_client
  */
 
-@WebServlet(name = "Creation_fiche_client", urlPatterns = "/creation_fiche_client" )
+@WebServlet(name = "Creation_fiche_client", urlPatterns = "/creation_fiche_client", initParams = @WebInitParam (name = "chemin", value="D:/Images/Images_LB/"))
 
 public class Creation_fiche_client extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -30,7 +31,9 @@ public class Creation_fiche_client extends HttpServlet {
     public static final String CHAMP_ADRESSE = "adresse";
     public static final String CHAMP_USERMAIL = "user_mail";
     public static final String CHAMP_TEL = "tel";
-    public static final String CHEMIN = "C:/Utilisateurs/TECH/Images/Images_LB/" ;
+
+    public static final String CHEMIN = "D:/Images/Images_LB/" ;
+
     
        
     /**
@@ -53,6 +56,9 @@ public class Creation_fiche_client extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+
+		//String chemin = this.getServletConfig().getInitParameter("chemin") ;
+
 		HttpSession s = request.getSession(true);    
 
 		int id = StoreData.getProfil((String) s.getAttribute("username")).getId();
@@ -63,7 +69,7 @@ public class Creation_fiche_client extends HttpServlet {
         String dirName = CHEMIN + nom + "_" + prenom + "/" ;
         
         String nom_de_jeune_fille = request.getParameter( CHAMP_NOM_JEUNE_FILLE );
-        String date_de_naissance = null ;
+        Date date_de_naissance = null ;
 
         String adresse = request.getParameter( CHAMP_ADRESSE );
         String user_mail = request.getParameter( CHAMP_USERMAIL );
@@ -71,29 +77,36 @@ public class Creation_fiche_client extends HttpServlet {
         
         
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-        date_de_naissance = request.getParameter( CHAMP_DATE_NAISSANCE ); 
+        String dateInString = request.getParameter( CHAMP_DATE_NAISSANCE ); 
 
         
-        //System.out.println(dateInString);
+        System.out.println(dateInString);
 
         
-       /* try {
+        try {
         
          date_de_naissance = formatter.parse(dateInString);
         
         } catch (ParseException e) {
          e.printStackTrace();
-        }*/
-        
-        
-        System.out.println(dirName) ;
-        request.setAttribute("dirName", dirName);
+
+        }
+                
+        System.out.println(nom);
+        System.out.println(prenom);
+        System.out.println(nom_de_jeune_fille);
+        System.out.println(date_de_naissance);
+        System.out.println(adresse);
+        System.out.println(user_mail);
+        System.out.println(tel);
+
+        s.setAttribute("dirName", dirName);
+        System.out.println(dirName);
+
         
         StoreData.creationficheclient(nom, prenom, nom_de_jeune_fille, date_de_naissance, adresse, user_mail, tel, id);
         
-        String nextJSP = "/WEB-INF/upload_fiche_client.jsp";
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
-        dispatcher.forward(request,response); 
+        this.getServletContext().getRequestDispatcher("/WEB-INF/upload_fiche_client.jsp").forward(request, response);
         
 	}
 }
