@@ -55,11 +55,25 @@ public class Modification_Profil extends HttpServlet {
 		HttpSession s = request.getSession(true);
 	    String password = request.getParameter( CHAMP_PASS );
 	    String email = request.getParameter( CHAMP_EMAIL );
-		StoreData.modificationprofil((String) s.getAttribute("username"), password, email);
+	    String confirmPass = request.getParameter (CHAMP_PASS2) ;
+	    String confirmEmail = request.getParameter(CHAMP_EMAIL2) ;
+	    
+	
+        if(password.equals(confirmPass)){
+        	
+        	if(email.equals(confirmEmail)){
+        		StoreData.modificationprofil((String) s.getAttribute("username"), password, email);
+                
+                this.getServletContext().getRequestDispatcher("/WEB-INF/page_accueil.jsp").forward(request, response) ;
+        	} else {
+            	request.setAttribute("erreur", "Les deux adresses mails renseignées ne sont pas identiques.");
+            	this.getServletContext().getRequestDispatcher("/WEB-INF/modification_profil.jsp").forward(request, response) ;
+        	}
+        } else {
+        	request.setAttribute("erreur", "Les deux mots de passe renseignés ne sont pas identiques.");
+        	this.getServletContext().getRequestDispatcher("/WEB-INF/modification_profil.jsp").forward(request, response) ;
+        }
 		
-		
-		this.getServletContext().getRequestDispatcher("/WEB-INF/page_accueil.jsp").forward(request, response) ;
-		System.out.println ("Ca marche");
 	}
 
 }

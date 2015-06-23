@@ -11,6 +11,13 @@
         <label for="inputConfirmationMail" class="sr-only">Confirmation Mail</label>
         <input type="email" name="confirmmail" id="inputConfirmationMail" class="form-control" placeholder="Confirmation adresse mail" required>
 		</br>
+			<%
+				String erreur = (String) request.getAttribute("erreur") ; 
+				if (erreur != null){
+					out.println(erreur) ;
+				}
+			%>
+		</br></br>
 		
         <button class="btn btn-lg btn-primary btn-block" type="submit">Valider</button>
 
