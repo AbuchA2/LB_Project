@@ -24,12 +24,6 @@ public class Connexion extends HttpServlet {
     public static final String VUE = "/WEB-INF/connexion.jsp";
     public static final String CHAMP_NOM = "nom";
     public static final String CHAMP_PASS = "motdepasse";
-    public static final String CHAMP_SOUV = "memoire";
-    public static final String COOKIE_MEMOIRE = "seSouvenir";
-    public static final int MAX_AGE = 31536000 ;
-//    public static final String CHAMP_EMAIL = "email";
-//    public static final String CHAMP_CONF = "confirmation";
-
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -41,15 +35,6 @@ public class Connexion extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		String cUsername = getCookieValue(request, "username") ;
-		String cPassword = getCookieValue(request, "password") ;
-		
-		if(cUsername != null && cPassword != null){
-			request.setAttribute("username", cUsername);
-			request.setAttribute("password", cPassword);
-		}
-		
 		this.getServletContext().getRequestDispatcher(VUE).forward(request, response);
 	}
 
@@ -57,23 +42,9 @@ public class Connexion extends HttpServlet {
 
         String nom = request.getParameter( CHAMP_NOM );
         String motDePasse = request.getParameter( CHAMP_PASS );
-        String souvenir = request.getParameter( CHAMP_SOUV );
-        String memoire = request.getParameter(CHAMP_SOUV);
-
-        if (memoire != null){
-        	
-        	//Suppression des cookies précédemment stockés.
-        	setCookie(response, "username", "", 0);
-        	setCookie(response, "password", "", 0);
-    
-        	setCookie(response, "username", nom, MAX_AGE);
-        	setCookie(response, "password", motDePasse, MAX_AGE);
-        	
-        }
         
         System.out.println(motDePasse);
         System.out.println(nom);
-        System.out.println(memoire);
         
     	HttpSession s = request.getSession(true);
     	
@@ -104,7 +75,6 @@ public class Connexion extends HttpServlet {
             //validationMotsDePasse( motDePasse, confirmation );
             validationNom( nom );
             validationMotsDePasse( motDePasse );
-            validationSouv( souvenir);
             
         } catch (Exception e) {
         }
@@ -113,8 +83,7 @@ public class Connexion extends HttpServlet {
     //private void validationEmail( String email ) throws Exception{}
     //private void validationMotsDePasse( String motDePasse, String confirmation ) throws Exception{}
     private void validationMotsDePasse( String motDePasse) throws Exception{}
-	private void validationNom( String nom ) throws Exception{}
-	private void validationSouv( String souvenir ) throws Exception{}		
+	private void validationNom( String nom ) throws Exception{}	
 
 	private static String getCookieValue( HttpServletRequest request, String nom ) {
 	    Cookie[] cookies = request.getCookies();
