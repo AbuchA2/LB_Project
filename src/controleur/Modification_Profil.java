@@ -58,7 +58,7 @@ public class Modification_Profil extends HttpServlet {
 		StoreData.modificationprofil((String) s.getAttribute("username"), password, email);
 		
 		
-		this.getServletContext().getRequestDispatcher("/WEB-INF/modification_profil.jsp").forward(request, response) ;
+		this.getServletContext().getRequestDispatcher("/WEB-INF/page_accueil.jsp").forward(request, response) ;
 		System.out.println ("Ca marche");
 	}
 
