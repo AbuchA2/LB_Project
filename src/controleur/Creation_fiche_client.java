@@ -31,7 +31,9 @@ public class Creation_fiche_client extends HttpServlet {
     public static final String CHAMP_ADRESSE = "adresse";
     public static final String CHAMP_USERMAIL = "user_mail";
     public static final String CHAMP_TEL = "tel";
-    public static final String CHEMIN = "D:/Images/Images_LB/" ;
+
+    public static final String CHEMIN = "C:/Images/Images_LB/" ;
+
     
        
     /**
@@ -54,11 +56,12 @@ public class Creation_fiche_client extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+
 		//String chemin = this.getServletConfig().getInitParameter("chemin") ;
-		
+
 		HttpSession s = request.getSession(true);    
 
-		//int id = StoreData.getProfil((String) s.getAttribute("username")).getId();
+		int id = StoreData.getProfil((String) s.getAttribute("username")).getId();
 		
         String nom = request.getParameter( CHAMP_NOM );
 
@@ -86,6 +89,7 @@ public class Creation_fiche_client extends HttpServlet {
         
         } catch (ParseException e) {
          e.printStackTrace();
+
         }
                 
         System.out.println(nom);
@@ -98,8 +102,9 @@ public class Creation_fiche_client extends HttpServlet {
 
         s.setAttribute("dirName", dirName);
         System.out.println(dirName);
+
         
-        //StoreData.creationficheclient(nom, prenom, nom_de_jeune_fille, date_de_naissance, adresse, user_mail, tel, id);
+        StoreData.creationficheclient(nom, prenom, nom_de_jeune_fille, date_de_naissance, adresse, user_mail, tel, id);
         
         this.getServletContext().getRequestDispatcher("/WEB-INF/upload_fiche_client.jsp").forward(request, response);
         

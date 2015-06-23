@@ -4,6 +4,8 @@ ${person.username}
 <h5>Adresse mail :</h5>
 ${person.email}
 
+</br>
+</br>
 <p>
 	<a class="btn btn-lg btn-success" href="modification_profil" role="button">Modifier votre profil</a>
 </p>

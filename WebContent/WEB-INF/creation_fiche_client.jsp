@@ -40,8 +40,6 @@
 
 	</form>
 	
-	<button class="btn btn-lg btn-primary btn-block" >Enregistrer
-		la fiche client</button>
 	<button class="btn btn-lg btn-primary btn-block" >Annuler
 		l'inscription</button>
 

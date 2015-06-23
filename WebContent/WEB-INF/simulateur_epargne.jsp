@@ -42,9 +42,11 @@
 <button class="btn btn-lg btn-primary btn-block" type="submit" style = "margin-bottom:5px;width:150px;height:40px;text-align:center;"> Calculer </button>
 <br></br>
 	<label for="total">Total : </label>     
-		<% 
+		<%  
             String attribut = (String) request.getAttribute("resultat");
+		if (attribut != null){
             out.println( attribut );
+		}
         %>
 	</form>
  	  
