@@ -23,8 +23,8 @@ import modele.StoreData;
  * Servlet implementation class creation_fiche_client
  */
 
-@WebServlet(name = "Upload_fiche_client", urlPatterns = "/upload_fiche_client" , initParams = @WebInitParam (name = "chemin", value="D:/Images/Images_LB/"))
-@MultipartConfig( location = "D:/Images/Temp_LB", maxFileSize = 10 * 1024 * 1024, maxRequestSize = 5 * 10 * 1024 * 1024, fileSizeThreshold = 1024 * 1024 )
+@WebServlet(name = "Upload_fiche_client", urlPatterns = "/upload_fiche_client" , initParams = @WebInitParam (name = "chemin", value="C:/Utilisateurs/TECH/Images/Images_LB/"))
+@MultipartConfig( location = "C:/Utilisateurs/TECH/Images/Temp_LB/", maxFileSize = 10 * 1024 * 1024, maxRequestSize = 5 * 10 * 1024 * 1024, fileSizeThreshold = 1024 * 1024 )
 
 public class Upload_fiche_client extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -56,6 +56,7 @@ public class Upload_fiche_client extends HttpServlet {
 		int id = StoreData.getProfil((String) s.getAttribute("username")).getId();
         
         String dirName = (String) request.getAttribute("dirName") ;
+        System.out.println(request.getAttribute("dirName")) ;
         File dir = new File(dirName);
         dir.mkdirs() ;
         

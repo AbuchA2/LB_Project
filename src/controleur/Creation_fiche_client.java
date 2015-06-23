@@ -30,6 +30,7 @@ public class Creation_fiche_client extends HttpServlet {
     public static final String CHAMP_ADRESSE = "adresse";
     public static final String CHAMP_USERMAIL = "user_mail";
     public static final String CHAMP_TEL = "tel";
+    public static final String CHEMIN = "C:/Utilisateurs/TECH/Images/Images_LB/" ;
     
        
     /**
@@ -52,8 +53,6 @@ public class Creation_fiche_client extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String chemin = this.getServletConfig().getInitParameter("chemin") ;
-		
 		HttpSession s = request.getSession(true);    
 
 		int id = StoreData.getProfil((String) s.getAttribute("username")).getId();
@@ -61,7 +60,7 @@ public class Creation_fiche_client extends HttpServlet {
         String nom = request.getParameter( CHAMP_NOM );
 
         String prenom = request.getParameter( CHAMP_PRENOM );
-        String dirName = chemin + nom + "_" + prenom + "/" ;
+        String dirName = CHEMIN + nom + "_" + prenom + "/" ;
         
         String nom_de_jeune_fille = request.getParameter( CHAMP_NOM_JEUNE_FILLE );
         String date_de_naissance = null ;
@@ -87,14 +86,7 @@ public class Creation_fiche_client extends HttpServlet {
         }*/
         
         
-        System.out.println(nom);
-        System.out.println(prenom);
-        System.out.println(nom_de_jeune_fille);
-        System.out.println(date_de_naissance);
-        System.out.println(adresse);
-        System.out.println(user_mail);
-        System.out.println(tel);
-
+        System.out.println(dirName) ;
         request.setAttribute("dirName", dirName);
         
         StoreData.creationficheclient(nom, prenom, nom_de_jeune_fille, date_de_naissance, adresse, user_mail, tel, id);
