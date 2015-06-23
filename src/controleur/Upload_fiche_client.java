@@ -5,6 +5,8 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Enumeration;
 
 import javax.servlet.RequestDispatcher;
@@ -102,7 +104,9 @@ public class Upload_fiche_client extends HttpServlet {
 	private static String getNomFichier( Part part ) {
 	    for ( String contentDisposition : part.getHeader( "Content-Disposition" ).split( ";" ) ) {
 	        if ( contentDisposition.trim().startsWith("filename") ) {
-	            return contentDisposition.substring( contentDisposition.indexOf( '=' ) + 1 ).trim().replace( "\"", "");
+	            String r = contentDisposition.substring( contentDisposition.indexOf( '=' ) + 1 ).trim().replace( "\"", "");
+	            Path p = Paths.get(r);
+	        	return p.getFileName().toString();
 	        }
 	    }
 	    return null;
@@ -113,8 +117,12 @@ public class Upload_fiche_client extends HttpServlet {
 	    BufferedInputStream entree = null ;
 	    BufferedOutputStream sortie = null ;
 	    try {
+	    	
+	    	System.out.println(chemin+nomFichier);
 	        entree = new BufferedInputStream( part.getInputStream(), TAILLE_TAMPON );
 	        sortie = new BufferedOutputStream( new FileOutputStream( new File( chemin + nomFichier ) ), TAILLE_TAMPON );
+	        
+	        
 	        
 	        byte[] tampon = new byte[TAILLE_TAMPON];
 	        int longueur;
