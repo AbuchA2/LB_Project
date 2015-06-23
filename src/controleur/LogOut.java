@@ -34,7 +34,8 @@ public class LogOut extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession s = request.getSession(true);
-    	s.setAttribute("username", "");
+		s.setAttribute("id", null);
+    	s.setAttribute("username", null);
     	s.setAttribute("isConnected", false);
 
     	this.getServletContext().getRequestDispatcher("/WEB-INF/connexion.jsp").forward(request, response) ;
