@@ -12,7 +12,7 @@
 		</property>
 
 		<property name="hibernate.connection.url">
-			jdbc:mysql://localhost/lb_db_dev
+			jdbc:mysql://localhost/lb_db
 		</property>
 		<property name="hibernate.connection.username">
 			root

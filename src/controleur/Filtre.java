@@ -18,7 +18,7 @@ import javax.servlet.http.HttpSession;
 public class Filtre implements Filter{
 	
 	public static final String ACCES_PUBLIC = "/connexion" ;
-	public static final String ATT_SESSION_USER = "sessionUtilisateur" ;
+	public static final String ATT_SESSION_USER = "id" ;
 
 	@Override
 	public void destroy() {
