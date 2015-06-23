@@ -2,11 +2,15 @@ package controleur;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import modele.StoreData;
 
 /**
  * Servlet implementation class Choix_produits
@@ -46,7 +50,7 @@ public class Choix_produits extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
+		HttpSession s = request.getSession(true);
         String livretA = request.getParameter( CHAMP_LIVRET );
         String pel = request.getParameter( CHAMP_PEL );
         String comptebancaire = request.getParameter( CHAMP_COMPTE );
@@ -54,9 +58,22 @@ public class Choix_produits extends HttpServlet {
         String cartebancaireinternationale = request.getParameter( CHAMP_CARTEINTERNATIONALE );
         String cartebancaireplatine = request.getParameter( CHAMP_CARTEPLATINE );
         
-        
+        int id = StoreData.getProfil((String) s.getAttribute("username")).getId();
         
         System.out.println(livretA);
+        System.out.println(pel);
+        System.out.println(comptebancaire);
+        System.out.println(cartebancairenationale);
+        System.out.println(cartebancaireinternationale);
+        System.out.println(cartebancaireplatine);      
+
+
+        StoreData.choixproduits((int) s.getAttribute("id") , livretA, pel, comptebancaire, cartebancairenationale, cartebancaireinternationale, cartebancaireplatine);
+         
+        String nextJSP = "/WEB-INF/confirmation_choixproduits.jsp";
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
+        dispatcher.forward(request,response); 
+        
         
         
 	}

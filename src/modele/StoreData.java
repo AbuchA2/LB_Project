@@ -293,6 +293,37 @@ public static void creationficheclientcanal(int id, String lien_PI, String lien_
       
 } 
 
+public static void choixproduits(int id, String livretA, String pel, String comptebancaire, String cartebancairenationale, String cartebancaireinternationale, String cartebancaireplatine ) {  
+    
+    //creating configuration object  
+    Configuration cfg=new Configuration();  
+    cfg.configure("hibernate.cfg.xml");//populates the data of the configuration file  
+      
+    //creating session factory object  
+    SessionFactory factory=cfg.buildSessionFactory();  
+      
+    //creating session object  
+    Session session=factory.openSession();  
+      
+    //creating transaction object  
+    Transaction t=session.beginTransaction();  
+    
+
+	Client currentUser = getProfilClient(id) ;   
+
+	
+
+    currentUser.setProduits_choisis(livretA+ "," +pel+ "," +comptebancaire+ "," +cartebancairenationale+ "," +cartebancairenationale+ "," +cartebancaireinternationale+ "," +cartebancaireplatine );
+    
+    session.merge(currentUser);//persisting the object  
+      
+    t.commit();//transaction is committed  
+    session.close();  
+      
+    System.out.println("successfully saved");  
+      
+} 
+
 
 
 

@@ -17,9 +17,8 @@
        <input type="checkbox" name="Carte_Bancaire_Platine" id="Carte Bancaire Platine" /> <label for="Carte Bancaire Platine"><a class="btn btn-lg btn-success" href="choix_produits_carte_platine" role="button">Carte Platine</a></label>
   		 </p>
  	  </div>
- 	  
- 	          <p><a class="btn btn-lg btn-success" href="#" role="button">Suivant</a></p>
- 	          <p><a class="btn btn-lg btn-danger" href="#" role="button">Annuler</a></p>
+ 	  <button class="btn btn-lg btn-primary btn-block" type="submit" style = "margin-bottom:5px;">Valider le choix des produits</button>
+
 	</form>
     </div><!-- /.container -->
 
