@@ -8,7 +8,7 @@
 </head>
 <body>
  
-	<!-- Fixed navbar -->
+<!-- Fixed navbar -->
 	<nav class="navbar navbar-default navbar-fixed-bottom">
 		<div class="container">
 			<div class="navbar-footer">
