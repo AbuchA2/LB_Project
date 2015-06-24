@@ -23,7 +23,7 @@
 
       </form>
 
-        <button class="btn btn-lg btn-primary btn-block" href="resume_profil">Annuler</button>
+        <button class="btn btn-lg btn-primary btn-block" href="page_accueil">Annuler</button>
 
 
 <%@include file="footer.jsp" %>
